@@ -1,0 +1,113 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Process from '@/components/sections/Process.astro';
+import Button from '@/components/ui/Button.astro';
+---
+
+<BaseLayout
+  title="Nuestro Proceso | MUZA GROW"
+  description="Discovery → Diseño → Construcción → Optimización. Así trabajamos en MUZA GROW para entregar resultados operacionales reales."
+>
+  <Header />
+  <main style="padding-top:5rem;">
+
+    <section class="section" style="padding-top:4rem;padding-bottom:2rem;">
+      <div class="s-tag">Metodología</div>
+      <h1 class="s-headline">
+        Cómo pasamos de<br><em>problema a resultados.</em>
+      </h1>
+      <p style="font-family:var(--body);font-size:1.05rem;color:var(--gr);line-height:1.75;max-width:640px;">
+        No tenemos paquetes genéricos ni soluciones pre-armadas. Cada proyecto
+        empieza desde cero entendiendo tu operación específica. Aquí está exactamente cómo trabajamos.
+      </p>
+    </section>
+
+    <Process />
+
+    <!-- Timeline expectations -->
+    <section class="section" id="timeline" style="padding-top:0;">
+      <div class="s-tag">Tiempos</div>
+      <h2 class="s-headline">¿Cuánto tarda<br><em>cada fase?</em></h2>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        {[
+          { phase: 'Discovery', duration: '1-2 semanas', desc: 'Sesiones de diagnóstico, mapeo de procesos, entregable del strategy document.' },
+          { phase: 'Diseño & Arquitectura', duration: '1 semana', desc: 'Diseño detallado de la solución, workflows, selección de herramientas, roadmap final.' },
+          { phase: 'Construcción', duration: '2-6 semanas', desc: 'Depende del alcance del proyecto. Proyectos simples: 2 semanas. Complejos: 6-8 semanas.' },
+          { phase: 'Testing & QA', duration: '3-5 días', desc: 'Pruebas exhaustivas antes del deployment. Sin atajos.' },
+          { phase: 'Deployment', duration: '1-2 días', desc: 'Activación en producción, verificación de todos los sistemas, handoff al equipo.' },
+          { phase: 'Optimization', duration: 'Continuo', desc: 'Monitoring mensual, iteraciones basadas en datos, escalabilidad conforme creces.' },
+        ].map((item, i) => (
+          <div class="card" style="display:flex;align-items:center;gap:2rem;padding:1.5rem 2rem;">
+            <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:rgba(243,198,99,.15);min-width:40px;text-align:center;">{String(i + 1).padStart(2, '0')}</div>
+            <div style="flex:1;">
+              <div style="font-family:var(--body);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem;">{item.phase}</div>
+              <div style="font-family:var(--body);font-size:.88rem;color:var(--gr);line-height:1.6;">{item.desc}</div>
+            </div>
+            <div style="font-family:var(--mono);font-size:.65rem;color:var(--teal);letter-spacing:.1em;white-space:nowrap;flex-shrink:0;background:rgba(0,168,143,.08);border:1px solid rgba(0,168,143,.2);padding:.4rem .9rem;border-radius:20px;">
+              {item.duration}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Why we work this way -->
+    <section class="section" style="padding-top:0;padding-bottom:5rem;">
+      <div class="s-tag">Por qué así</div>
+      <h2 class="s-headline">La razón detrás<br><em>del proceso.</em></h2>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;">
+        {[
+          {
+            icon: '🎯',
+            title: 'Discovery previene desperdicio',
+            desc: 'El 80% del trabajo mal invertido en automatización viene de no entender el problema. Discovery elimina eso.',
+          },
+          {
+            icon: '📐',
+            title: 'Diseño primero, construcción después',
+            desc: 'Construir sin diseño genera retrabajos. Con arquitectura clara, el build es predecible y sin sorpresas.',
+          },
+          {
+            icon: '📊',
+            title: 'Métricas desde el día 1',
+            desc: 'Definimos KPIs antes de construir. Así sabemos exactamente si el sistema está funcionando o no.',
+          },
+        ].map(item => (
+          <div class="card" style="text-align:center;">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">{item.icon}</div>
+            <h3 style="font-family:var(--body);font-size:1.1rem;font-weight:700;margin-bottom:.75rem;">{item.title}</h3>
+            <p style="font-family:var(--body);font-size:.9rem;color:var(--gr);line-height:1.65;">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section style="text-align:center;padding:4rem var(--px) 6rem;position:relative;z-index:2;">
+      <h2 style="font-family:var(--body);font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;">
+        ¿Listo para empezar con Discovery?
+      </h2>
+      <Button href="/contacto" size="lg">Agendar diagnóstico gratuito →</Button>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+@media (max-width: 700px) {
+  .card[style*="display:flex;align-items:center"] {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    text-align: center;
+  }
+}
+@media (max-width: 860px) {
+  div[style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+}
+
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://muzagrow.com';
+const DEFAULT_DESC = 'Diseñamos infraestructura de crecimiento para corporativos en LATAM. Service Design + Automatización IA para que tu equipo haga lo que importa.';
+const DEFAULT_IMG = `${SITE_URL}/og-image.png`;
+
+const {
+  title = 'MUZA GROW | Infraestructura de Crecimiento con IA',
+  description = DEFAULT_DESC,
+  image = DEFAULT_IMG,
+  canonical = SITE_URL + Astro.url.pathname,
+  type = 'website',
+} = Astro.props;
+
+const fullTitle = title.includes('MUZA GROW') ? title : `${title} | MUZA GROW`;
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content="MUZA GROW" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<!-- JSON-LD Organization -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MUZA GROW",
+  "url": SITE_URL,
+  "description": DEFAULT_DESC,
+  "email": "hola@muzagrow.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ciudad de México",
+    "addressCountry": "MX"
+  }
+})} />

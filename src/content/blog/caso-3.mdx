@@ -1,0 +1,147 @@
+---
+title: "CFO: -68% en Costos Operacionales de Finanzas"
+excerpt: "El departamento de finanzas de una empresa de 300 empleados procesaba nómina, facturas y reportes de forma manual. 120 horas al mes. Lo bajamos a 38 horas — ahorrando $15,000 USD al mes."
+pubDate: 2025-05-02
+industry: "Finanzas / Operaciones"
+client: "Empresa de manufactura (anonimizado)"
+challenge: "Procesos de finanzas 100% manuales consumiendo 120h/mes"
+duration: "6 semanas"
+featured: true
+metrics:
+  - label: "Reducción horas manuales"
+    value: "-68%"
+    context: "De 120h a 38h por mes"
+  - label: "Ahorro mensual"
+    value: "$15K"
+    context: "USD en horas de trabajo financiero"
+  - label: "Errores en reportes"
+    value: "-92%"
+    context: "Antes vs después de automatización"
+  - label: "Tiempo de cierre mensual"
+    value: "-5 días"
+    context: "De 8 días a 3 días"
+techStack: ["n8n", "SAP Integration", "Google Sheets", "DocuSign", "Resend", "Notion"]
+---
+
+## El Problema
+
+El CFO de una empresa manufacturera de 300 empleados llegó con números claros:
+
+> "Tengo un equipo de 4 personas en finanzas. Calculé que gastamos 120 horas al mes en tareas completamente manuales: nómina, facturas, conciliaciones, reportes al directorio. Eso es 3 personas trabajando full time en copiar y pegar. Necesito cambiar eso."
+
+El CFO ya tenía el diagnóstico. Lo que necesitaba era el diseño y la ejecución.
+
+### El inventario de procesos manuales
+
+En la sesión de Discovery mapeamos 7 procesos:
+
+1. **Procesamiento de nómina:** 28h/mes — cálculos en Excel, verificación manual
+2. **Conciliación bancaria:** 22h/mes — comparar extractos con ERP
+3. **Generación de facturas:** 18h/mes — crear y enviar facturas a clientes
+4. **Cierre contable mensual:** 24h/mes — recopilar datos de todos los departamentos
+5. **Reportes al directorio:** 16h/mes — generar deck de KPIs financieros
+6. **Cuentas por pagar:** 8h/mes — aprobar y procesar pagos a proveedores
+7. **Auditoría interna:** 4h/mes — preparar documentación para auditoría
+
+**Total: 120 horas/mes. $15,000 USD/mes si costamos el tiempo al valor de mercado.**
+
+---
+
+## La Solución
+
+Diseñamos automatización por prioridad de impacto/esfuerzo:
+
+### Sprint 1 (Semanas 1-2): Quick wins
+
+**Conciliación bancaria automatizada:**
+- n8n conecta al banco (API) y al ERP (SAP)
+- Compara transacciones automáticamente
+- Genera reporte de discrepancias para revisión humana
+- Solo se requiere acción en el 3-5% de casos con discrepancia
+
+**Resultado:** 22h → 4h/mes. Solo supervisar excepciones.
+
+**Generación y envío de facturas:**
+- Cuando se registra una venta en SAP, n8n genera factura en PDF
+- La envía automáticamente al cliente con DocuSign para firma
+- Notifica al vendedor cuando está firmada
+
+**Resultado:** 18h → 2h/mes (solo revisión de casos especiales).
+
+### Sprint 2 (Semanas 3-4): Cierre mensual
+
+**Cierre contable automatizado:**
+- n8n solicita automáticamente los datos a cada departamento (templates pre-llenados)
+- Consolida la información en el formato correcto
+- Genera el borrador del cierre para revisión del equipo
+
+**Resultado:** 24h → 6h/mes (de compilar datos a validar el borrador).
+
+### Sprint 3 (Semanas 5-6): Reportes y nómina
+
+**Dashboard financiero automático:**
+- Cada lunes, n8n extrae KPIs de SAP, Sheets y banco
+- Genera deck en Google Slides con gráficas actualizadas
+- Envía resumen ejecutivo por email al directorio
+
+**Resultado:** 16h → 1h/mes (solo contextualizar el deck).
+
+**Procesamiento de nómina asistido:**
+- n8n pre-llena el 85% de la nómina automáticamente
+- Marca para revisión humana los casos especiales (vacaciones, bajas, bonos)
+- El equipo solo revisa, no construye desde cero
+
+**Resultado:** 28h → 8h/mes.
+
+---
+
+## Los Resultados al Mes 2
+
+| Proceso | Antes | Después | Ahorro |
+|---------|-------|---------|--------|
+| Conciliación bancaria | 22h | 4h | **-82%** |
+| Generación de facturas | 18h | 2h | **-89%** |
+| Cierre contable | 24h | 6h | **-75%** |
+| Reportes directorio | 16h | 1h | **-94%** |
+| Nómina | 28h | 8h | **-71%** |
+| Cuentas por pagar | 8h | 3h | **-63%** |
+| Auditoría interna | 4h | 14h | *Aumentó* |
+| **TOTAL** | **120h** | **38h** | **-68%** |
+
+*La auditoría interna aumentó porque ahora tenemos logs automáticos de todo — el equipo de auditoría usa más tiempo analizando datos (trabajo de valor) vs buscando documentos.
+
+### Ahorro económico
+
+- Horas liberadas: 82h/mes
+- Costo promedio del tiempo financiero: $185 USD/hora (incluyendo prestaciones, espacio, overhead)
+- **Ahorro mensual: $15,170 USD**
+- **Costo del proyecto: $22,000 USD**
+- **ROI: Recuperado en 1.5 meses**
+
+---
+
+## Lo que aprendimos
+
+**1. El CFO ya sabía el problema — necesitaba el diseño**
+
+Los CFOs son analíticos. Llegó con los números. Nuestra conversación fue sobre arquitectura, no sobre convencerlo de que había un problema. Esto aceleró mucho el Discovery.
+
+**2. SAP + n8n es posible pero requiere más tiempo**
+
+Las integraciones con ERPs legacy como SAP son posibles pero más complejas. Pasamos una semana extra en integración que no teníamos planeada. Ahora lo incluimos en el estimate de tiempo para proyectos con ERP.
+
+**3. La auditoría "empeoró" — y eso es bueno**
+
+El equipo de auditoría inicialmente protestó porque "ahora tenemos más trabajo". El problema era que antes no había datos que auditar — no había registros. Ahora sí. Más trabajo de auditoría = mejor control financiero.
+
+---
+
+## El follow-up del CFO (mes 3)
+
+A los 3 meses, el CFO hizo un análisis de "qué más podemos hacer":
+
+- Identificamos 4 procesos adicionales en finanzas con potencial de automatización
+- Estimado de ahorro adicional: $6,000 USD/mes
+- Arrancamos el segundo proyecto con confianza — ya conocemos los sistemas, ya conocemos el equipo.
+
+**Eso es exactamente el modelo de Ongoing Optimization.**

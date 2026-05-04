@@ -1,0 +1,61 @@
+---
+import { SITE } from '@/lib/constants';
+---
+
+<footer aria-label="Pie de página MUZA GROW">
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">MUZA<span class="dot">.</span>GROW</div>
+        <p class="ft-desc">
+          Service Design + Automatización IA para corporativos en LATAM.
+          Diseñamos infraestructura que escala.
+        </p>
+        <div class="ft-status">
+          <div class="st-dot" aria-hidden="true"></div>
+          <span>// sistemas_activos</span>
+        </div>
+      </div>
+
+      <nav aria-label="Servicios">
+        <div class="ft-col-title">Servicios</div>
+        <ul class="ft-links" role="list">
+          <li><a href="/servicios#discovery">Growth Architecture Discovery</a></li>
+          <li><a href="/servicios#build">Automation Design & Build</a></li>
+          <li><a href="/servicios#optimize">Ongoing Optimization</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Empresa">
+        <div class="ft-col-title">Empresa</div>
+        <ul class="ft-links" role="list">
+          <li><a href="/proceso">Nuestro Proceso</a></li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <div class="ft-col-title">Stack</div>
+        <div class="ft-stack">
+          <div><span class="k">INFRA:</span> n8n / Vercel</div>
+          <div><span class="k">AI:</span> GPT-4o / Claude</div>
+          <div><span class="k">DATA:</span> Postgres / BQ</div>
+          <div><span class="k">WEB:</span> Astro / React</div>
+          <div><span class="k">FLOW:</span> Flowise / LC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-bottom">
+      <div class="ft-loc">📍 &nbsp;CIUDAD DE MÉXICO — GLOBAL</div>
+      <p class="ft-copy">
+        © 2025 MUZA GROW &nbsp;|&nbsp;
+        <a href="/privacidad">Privacidad</a> &nbsp;|&nbsp;
+        <a href="/terminos">Términos</a> &nbsp;|&nbsp;
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </p>
+    </div>
+  </div>
+</footer>

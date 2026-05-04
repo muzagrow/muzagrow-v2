@@ -1,0 +1,161 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Badge from '@/components/ui/Badge.astro';
+import Button from '@/components/ui/Button.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout
+  title={`${post.data.title} | MUZA GROW`}
+  description={post.data.excerpt}
+>
+  <Header />
+  <main style="padding-top:5rem;">
+
+    <!-- Hero -->
+    <section class="section" style="padding-top:4rem;padding-bottom:2rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+        <Badge color="teal">{post.data.industry}</Badge>
+        <span style="font-family:var(--mono);font-size:.58rem;color:var(--gr-d);">
+          {post.data.pubDate.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </span>
+        {post.data.duration && (
+          <span style="font-family:var(--mono);font-size:.58rem;color:var(--gr-d);">
+            · Proyecto de {post.data.duration}
+          </span>
+        )}
+      </div>
+
+      <h1 style="font-family:var(--body);font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:1.5rem;max-width:800px;">
+        {post.data.title}
+      </h1>
+
+      <p style="font-family:var(--body);font-size:1.1rem;color:var(--gr);line-height:1.75;max-width:700px;">
+        {post.data.excerpt}
+      </p>
+    </section>
+
+    <!-- Metrics bar -->
+    {post.data.metrics && (
+      <section class="section" style="padding-top:0;padding-bottom:0;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;border:1px solid var(--bdr);border-radius:1.5rem;overflow:hidden;background:var(--bdr);">
+          {post.data.metrics.map((m: { label: string; value: string; context?: string }) => (
+            <div style="background:var(--bg);padding:1.5rem;text-align:center;">
+              <div style="font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:var(--teal);line-height:1;margin-bottom:.3rem;">{m.value}</div>
+              <div style="font-family:var(--mono);font-size:.5rem;color:var(--gr-d);letter-spacing:.18em;text-transform:uppercase;">{m.label}</div>
+              {m.context && <div style="font-family:var(--body);font-size:.75rem;color:var(--gr);margin-top:.4rem;">{m.context}</div>}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Content -->
+    <section class="section" style="padding-top:3rem;padding-bottom:3rem;">
+      <div style="max-width:720px;">
+        <div class="blog-content">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech stack used -->
+    {post.data.techStack && (
+      <section class="section" style="padding-top:0;">
+        <div class="card" style="padding:2rem;">
+          <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;">Tech Stack Utilizado</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+            {post.data.techStack.map((t: string) => (
+              <span style="font-family:var(--mono);font-size:.6rem;color:var(--gr);background:var(--s2);border:1px solid var(--bdr);padding:.3rem .75rem;border-radius:20px;">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA -->
+    <section style="text-align:center;padding:4rem var(--px) 6rem;position:relative;z-index:2;">
+      <h2 style="font-family:var(--body);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;margin-bottom:1rem;">
+        ¿Tiene sentido para tu empresa?
+      </h2>
+      <p style="font-family:var(--body);font-size:1rem;color:var(--gr);max-width:480px;margin:0 auto 2rem;line-height:1.7;">
+        Cada operación es diferente. Hablemos y veamos si podemos replicar o superar estos resultados en tu caso.
+      </p>
+      <Button href="/contacto" size="lg">Discutir mi situación →</Button>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+.blog-content {
+  font-family: var(--body);
+  line-height: 1.8;
+  color: var(--gr);
+}
+.blog-content h2 {
+  font-family: var(--body);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--white);
+  margin: 2.5rem 0 1rem;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+.blog-content h3 {
+  font-family: var(--body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 2rem 0 .75rem;
+}
+.blog-content p { margin-bottom: 1.4rem; font-size: .97rem; }
+.blog-content strong { color: var(--white); font-weight: 600; }
+.blog-content em { font-family: var(--ser); font-size: 1.05em; font-style: italic; }
+.blog-content ul, .blog-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.blog-content li { font-size: .95rem; }
+.blog-content blockquote {
+  border-left: 3px solid var(--teal);
+  padding: 1rem 1.5rem;
+  background: var(--s1);
+  border-radius: 0 .75rem .75rem 0;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--white);
+}
+.blog-content code {
+  font-family: var(--mono);
+  font-size: .85em;
+  background: var(--s2);
+  padding: .15rem .4rem;
+  border-radius: .3rem;
+  color: var(--teal);
+}
+.blog-content hr {
+  border: none;
+  border-top: 1px solid var(--bdr);
+  margin: 2.5rem 0;
+}
+</style>

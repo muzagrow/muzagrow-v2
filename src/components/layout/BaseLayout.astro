@@ -1,0 +1,68 @@
+---
+import SEO from '@/components/common/SEO.astro';
+import '@/styles/globals.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+const plausible = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+---
+
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <SEO title={title} description={description} image={image} />
+  {plausible && (
+    <script
+      defer
+      data-domain={plausible}
+      src="https://plausible.io/js/script.js"
+    ></script>
+  )}
+</head>
+<body>
+  <div id="cur-dot" aria-hidden="true"></div>
+  <div id="cur-ring" aria-hidden="true"></div>
+
+  <slot />
+
+  <!-- Custom cursor — desktop only -->
+  <script>
+    (function () {
+      const dot = document.getElementById('cur-dot');
+      const ring = document.getElementById('cur-ring');
+      if (!dot || !ring || window.matchMedia('(pointer:coarse)').matches) return;
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx - 4 + 'px';
+        dot.style.top = my - 4 + 'px';
+      }, { passive: true });
+      (function lp() {
+        rx += (mx - rx - 16) * .12;
+        ry += (my - ry - 16) * .12;
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+        requestAnimationFrame(lp);
+      })();
+      document.querySelectorAll('a,button').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          dot.style.transform = 'scale(2.2)';
+          ring.style.borderColor = 'rgba(243,198,99,.85)';
+        });
+        el.addEventListener('mouseleave', () => {
+          dot.style.transform = '';
+          ring.style.borderColor = 'rgba(0,168,143,.45)';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

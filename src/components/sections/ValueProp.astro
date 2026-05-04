@@ -1,0 +1,79 @@
+---
+import { BUYER_PROFILES } from '@/lib/constants';
+
+const colorMap: Record<string, { accent: string; bg: string; border: string }> = {
+  teal:   { accent: 'var(--teal)',   bg: 'rgba(0,168,143,.06)',   border: 'rgba(0,168,143,.2)' },
+  orange: { accent: 'var(--orange)', bg: 'rgba(243,169,61,.06)',   border: 'rgba(243,169,61,.2)' },
+  coral:  { accent: 'var(--coral)',  bg: 'rgba(238,118,93,.06)',   border: 'rgba(238,118,93,.2)' },
+};
+---
+
+<section class="section" id="valor" aria-labelledby="valor-h">
+  <div class="s-tag">Para cada tipo de empresa</div>
+  <h2 class="s-headline" id="valor-h">
+    Entendemos tu<br><em>problema exacto.</em>
+  </h2>
+
+  <div class="vp-grid">
+    {BUYER_PROFILES.map(profile => {
+      const c = colorMap[profile.color];
+      return (
+        <article class="card vp-card" aria-labelledby={`vp-${profile.color}`}>
+          <div class="vp-metric" style={`color:${c.accent}`}>{profile.metric}</div>
+          <div class="vp-metric-label">{profile.metricLabel}</div>
+          <h3 class="vp-role" id={`vp-${profile.color}`}>{profile.role}</h3>
+          <p class="vp-pain">{profile.pain}</p>
+          <div class="vp-divider" style={`background:${c.accent};opacity:.3`}></div>
+          <p class="vp-solution">{profile.solution}</p>
+        </article>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+.vp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+@media (max-width: 860px) { .vp-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) and (min-width: 861px) { .vp-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.vp-card { display: flex; flex-direction: column; gap: .6rem; }
+.vp-metric {
+  font-family: var(--mono);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+.vp-metric-label {
+  font-family: var(--mono);
+  font-size: .55rem;
+  color: var(--gr-d);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-top: -.3rem;
+  margin-bottom: .5rem;
+}
+.vp-role {
+  font-family: var(--body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.vp-pain {
+  font-family: var(--body);
+  font-size: .9rem;
+  color: var(--gr);
+  line-height: 1.65;
+}
+.vp-divider { height: 1px; width: 40px; margin: .5rem 0; }
+.vp-solution {
+  font-family: var(--body);
+  font-size: .88rem;
+  color: var(--white);
+  line-height: 1.65;
+  flex: 1;
+}
+</style>

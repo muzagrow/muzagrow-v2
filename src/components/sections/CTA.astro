@@ -1,0 +1,59 @@
+---
+import { SITE } from '@/lib/constants';
+---
+
+<section id="contact" style="padding:clamp(4rem,10vw,10rem) var(--px);text-align:center;position:relative;z-index:2;overflow:hidden;">
+  <!-- Glow -->
+  <div style="content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(600px,90vw);height:min(600px,90vw);background:radial-gradient(circle,rgba(238,118,93,.05) 0%,transparent 70%);border-radius:50%;pointer-events:none;" aria-hidden="true"></div>
+
+  <div style="position:relative;z-index:1;max-width:640px;margin:0 auto;">
+    <div class="s-tag cta-tag" style="justify-content:center;margin-bottom:1.8rem;">// Siguiente paso</div>
+
+    <h2 style="font-family:var(--body);font-weight:800;font-size:clamp(2.8rem,8.5vw,7rem);letter-spacing:-.03em;line-height:.95;margin-bottom:.6rem;">
+      ¿Listo para<br>
+      <em class="holo-text" style="font-family:var(--ser);font-style:italic;font-weight:400;">escalar en serio?</em>
+    </h2>
+
+    <p style="font-family:var(--body);font-size:1rem;color:var(--gr);line-height:1.75;margin:1.2rem auto 2.8rem;max-width:480px;">
+      Diagnóstico gratuito con Moises. Sin formularios infinitos, sin ventas de alta presión. Entendemos tu problema primero.
+    </p>
+
+    <div class="cc-stack">
+      <a
+        href={SITE.whatsapp}
+        class="cc primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="cc-icon">💬</div>
+        <div class="cc-body">
+          <div class="cc-title">WhatsApp directo</div>
+          <div class="cc-desc">Respuesta en menos de 2h en horario CDMX</div>
+        </div>
+        <div class="cc-arr">→</div>
+      </a>
+
+      <a href="/contacto" class="cc">
+        <div class="cc-icon">📋</div>
+        <div class="cc-body">
+          <div class="cc-title">Cuéntame tu desafío</div>
+          <div class="cc-desc">Formulario detallado — descripción del problema + presupuesto</div>
+        </div>
+        <div class="cc-arr">→</div>
+      </a>
+
+      <a href={`mailto:${SITE.email}`} class="cc">
+        <div class="cc-icon">✉️</div>
+        <div class="cc-body">
+          <div class="cc-title">Email directo</div>
+          <div class="cc-desc">{SITE.email} — respuesta en 24h</div>
+        </div>
+        <div class="cc-arr">→</div>
+      </a>
+    </div>
+
+    <p style="font-family:var(--mono);font-size:.58rem;color:var(--gr-d);letter-spacing:.1em;">
+      // Sin contratos largos. Sin costos ocultos. Solo resultados.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Button from '@/components/ui/Button.astro';
+---
+
+<BaseLayout title="404 — Página no encontrada | MUZA GROW">
+  <Header />
+  <main style="padding-top:5rem;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;">
+    <div style="max-width:500px;padding:2rem;">
+      <div style="font-family:var(--mono);font-size:8rem;font-weight:700;color:rgba(243,198,99,.08);line-height:1;margin-bottom:-.5rem;">
+        404
+      </div>
+      <div style="font-family:var(--mono);font-size:.6rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;">
+        // ruta_no_encontrada
+      </div>
+      <h1 style="font-family:var(--body);font-size:2rem;font-weight:800;margin-bottom:1rem;">
+        Esta página no existe (aún)
+      </h1>
+      <p style="font-family:var(--body);font-size:.95rem;color:var(--gr);line-height:1.75;margin-bottom:2.5rem;">
+        Puede que estés buscando algo que todavía estamos construyendo,
+        o que la URL cambió. Vuelve al inicio.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <Button href="/">Volver al inicio</Button>
+        <Button href="/contacto" variant="outline">Contactar a Moises</Button>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

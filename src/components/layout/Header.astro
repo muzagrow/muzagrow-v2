@@ -1,0 +1,45 @@
+---
+import { NAV_LINKS } from '@/lib/constants';
+
+interface Props {
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const { ctaLabel = 'AGENDAR DIAGNÓSTICO', ctaHref = '/contacto' } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<header>
+  <nav id="nav" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">MUZA<span class="dot">.</span>GROW</a>
+
+      <ul class="nav-links" role="list">
+        {NAV_LINKS.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[{ active: pathname === link.href || pathname.startsWith(link.href.replace('/#', '/')) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <a href={ctaHref} class="nav-cta">{ctaLabel}</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+</script>
+
+<style>
+  .nav-links a.active { color: white; }
+</style>

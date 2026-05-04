@@ -1,0 +1,90 @@
+---
+import { SERVICES, TOOLS } from '@/lib/constants';
+import Badge from '@/components/ui/Badge.astro';
+---
+
+<section class="section" id="servicios" aria-labelledby="svc-h" style="padding-top:0">
+  <div class="s-tag">Protocolos disponibles</div>
+  <h2 class="s-headline" id="svc-h">
+    Elige tu<br><em>protocolo de escala.</em>
+  </h2>
+
+  <div class="svc-grid">
+    {SERVICES.map((svc, i) => (
+      <article class="card svc-card" aria-labelledby={`svc-${i}`}>
+        <div class="svc-num">/ {svc.num}</div>
+        <h3 class="svc-title" id={`svc-${i}`}>
+          {svc.title}<br><em>{svc.titleEm}</em>
+        </h3>
+        <p class="svc-desc">{svc.description}</p>
+
+        <div class="svc-meta">
+          <div class="svc-meta-row">
+            <span class="svc-meta-label">ENTREGABLE</span>
+            <span class="svc-meta-val">{svc.deliverable}</span>
+          </div>
+          <div class="svc-meta-row">
+            <span class="svc-meta-label">PARA</span>
+            <span class="svc-meta-val">{svc.forWho}</span>
+          </div>
+        </div>
+
+        <div class="svc-tags">
+          {svc.tags.map(tag => <Badge>{tag}</Badge>)}
+        </div>
+
+        <a href="/contacto" class="svc-link">SABER MÁS →</a>
+      </article>
+    ))}
+  </div>
+
+  <div class="tools-strip">
+    <p class="tools-label">Herramientas que dominamos</p>
+    <div class="tools-row">
+      {TOOLS.map(t => <div class="tool-pill">{t}</div>)}
+    </div>
+  </div>
+</section>
+
+<style>
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+@media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1200px) and (min-width: 901px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.svc-card { display: flex; flex-direction: column; gap: .85rem; }
+.svc-num { font-family: var(--mono); font-size: .55rem; color: var(--gr-d); letter-spacing: .15em; }
+.svc-title {
+  font-family: var(--body); font-size: 1.8rem; letter-spacing: -.01em; line-height: 1.05;
+  font-weight: 800;
+}
+.svc-title em { font-family: var(--ser); color: var(--gr); font-size: .88em; font-style: italic; font-weight: 400; }
+.svc-desc { font-family: var(--body); font-size: .9rem; color: var(--gr); line-height: 1.75; flex: 1; }
+
+.svc-meta { display: flex; flex-direction: column; gap: .5rem; }
+.svc-meta-row { display: flex; flex-direction: column; gap: .15rem; }
+.svc-meta-label { font-family: var(--mono); font-size: .48rem; color: var(--gr-d); letter-spacing: .2em; text-transform: uppercase; }
+.svc-meta-val { font-family: var(--body); font-size: .82rem; color: var(--white); }
+
+.svc-tags { display: flex; flex-wrap: wrap; gap: .38rem; }
+.svc-link {
+  font-family: var(--mono); font-size: .6rem; color: var(--gold);
+  letter-spacing: .13em; text-decoration: none; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: .4rem;
+  transition: gap .2s; margin-top: .3rem;
+}
+.svc-link:hover { gap: .8rem; }
+
+.tools-strip { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--bdr); }
+.tools-label { font-family: var(--mono); font-size: .58rem; color: var(--gr-d); letter-spacing: .2em; text-transform: uppercase; text-align: center; margin-bottom: 1.3rem; }
+.tools-row { display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center; }
+.tool-pill {
+  font-family: var(--mono); font-size: .6rem; color: var(--gr);
+  background: var(--s2); border: 1px solid var(--bdr); padding: .4rem 1rem; letter-spacing: .05em;
+  border-radius: 20px; transition: color .2s, border-color .2s; cursor: default;
+}
+.tool-pill:hover { color: var(--white); border-color: var(--bdr-g); }
+</style>

@@ -1,0 +1,234 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { SITE } from '@/lib/constants';
+---
+
+<section id="hero" style="position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5.5rem var(--px) 2.5rem;overflow:hidden;">
+
+  <!-- Glow -->
+  <div style="position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:min(500px,90vw);height:min(500px,90vw);background:radial-gradient(ellipse,rgba(0,168,143,.06) 0%,rgba(243,198,99,.06) 40%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;" aria-hidden="true"></div>
+
+  <!-- HUD LEFT — desktop only -->
+  <div class="hud hud-L" aria-label="Estado del sistema" style="display:none;">
+    <div class="hud-panel">
+      <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.45rem;">
+        <span style="font-family:var(--mono);font-size:.68rem;color:var(--white);background:rgba(14,40,48,.95);border:1px solid var(--bdr);border-radius:3px;padding:.14rem .4rem;">&gt;_</span>
+        <span style="width:10px;height:10px;background:var(--coral);border-radius:50%;box-shadow:0 0 8px rgba(238,118,93,.4);animation:cdot 1.9s ease-in-out infinite;" aria-hidden="true"></span>
+      </div>
+      <p style="font-family:var(--mono);font-size:.58rem;color:var(--gr);">Status: <b style="color:var(--teal);">Activo</b></p>
+    </div>
+    <div class="hud-line hud-L-line"></div>
+  </div>
+
+  <!-- Sphere -->
+  <div id="sphere-wrap" role="img" aria-label="MUZA CORE — Sistema activo" style="position:relative;z-index:2;width:clamp(220px,48vw,460px);height:clamp(220px,48vw,460px);flex-shrink:0;">
+    <canvas id="three-canvas" style="width:100%!important;height:100%!important;"></canvas>
+  </div>
+
+  <!-- HUD RIGHT — desktop only -->
+  <div class="hud hud-R" aria-label="Métricas ROI" style="display:none;">
+    <div class="hud-line hud-R-line"></div>
+    <div class="hud-panel">
+      <div style="font-family:var(--mono);font-size:2.5rem;line-height:1;color:var(--teal);letter-spacing:.04em;" aria-label="ROI 240 porciento">+240%</div>
+      <div style="font-family:var(--mono);font-size:.52rem;color:var(--gr);letter-spacing:.12em;text-transform:uppercase;margin-top:.1rem;">ROI_Métricas</div>
+    </div>
+  </div>
+
+  <!-- Core label -->
+  <div style="display:flex;justify-content:center;margin-top:-.3rem;z-index:3;position:relative;">
+    <div style="font-family:var(--mono);font-size:.68rem;letter-spacing:.28em;color:var(--white);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:.45rem 1.3rem;display:inline-flex;align-items:center;gap:.35rem;border-radius:2rem;">
+      <span style="color:var(--teal);opacity:.8;">[</span>&nbsp;MUZA_CORE&nbsp;<span style="color:var(--teal);opacity:.8;">]</span>
+    </div>
+  </div>
+
+  <!-- Headlines -->
+  <div id="hero-heads" style="text-align:center;margin-top:1.2rem;position:relative;z-index:3;width:100%;">
+    <span style="font-family:var(--body);font-weight:800;font-size:clamp(2.4rem,6.5vw,7.5rem);letter-spacing:-.03em;color:var(--white);line-height:1.05;display:block;">
+      RESOLVEMOS TUS
+    </span>
+    <span class="holo-text" style="font-family:var(--body);font-weight:800;font-size:clamp(2.4rem,6.5vw,7.5rem);letter-spacing:-.03em;line-height:1.05;display:block;">
+      PROBLEMAS OPERACIONALES.
+    </span>
+  </div>
+
+  <p style="font-family:var(--body);font-size:clamp(.95rem,2vw,1.1rem);color:var(--gr);line-height:1.7;text-align:center;max-width:580px;margin-top:1.4rem;position:relative;z-index:3;">
+    No vendemos herramientas. Diseñamos infraestructura para que tu equipo haga lo que importa. El resto? Automático.
+  </p>
+
+  <!-- CTAs -->
+  <div style="display:flex;gap:1rem;margin-top:2rem;position:relative;z-index:3;flex-wrap:wrap;justify-content:center;">
+    <Button href="/contacto" size="lg">⚙ Agendar diagnóstico</Button>
+    <Button href="/contacto#form" variant="outline" size="lg">Cuéntame tu desafío</Button>
+  </div>
+
+  <!-- Metrics bar -->
+  <div id="metrics" aria-label="Métricas de desempeño" style="display:grid;grid-template-columns:repeat(4,1fr);margin-top:2rem;width:100%;max-width:760px;border:1px solid var(--bdr);background:var(--s1);backdrop-filter:blur(12px);position:relative;z-index:3;border-radius:1.5rem;">
+    <div class="met">
+      <span class="met-num" data-t="300">300</span><span class="met-sfx">%+</span>
+      <div class="met-lbl">ROI automatización</div>
+    </div>
+    <div class="met">
+      <span class="met-num" data-t="48">48</span><span class="met-sfx">h</span>
+      <div class="met-lbl">Deploy garantizado</div>
+    </div>
+    <div class="met">
+      <span class="met-num" data-t="24">24</span><span class="met-sfx">/7</span>
+      <div class="met-lbl">Sistemas activos</div>
+    </div>
+    <div class="met">
+      <span class="met-num" data-t="12">12</span><span class="met-sfx">x</span>
+      <div class="met-lbl">Velocidad operativa</div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Dock -->
+<div id="dock">
+  <div class="dock-inner">
+    <div class="dock-term" aria-hidden="true">&gt;_</div>
+    <div class="dock-actions">
+      <a href="/" class="dock-outline"><span class="br">[</span>&nbsp;INICIO&nbsp;<span class="br">]</span></a>
+      <a href="/contacto" class="dock-cta">⚙&nbsp;AGENDAR DIAGNÓSTICO</a>
+    </div>
+    <div class="dock-loc">
+      <span>📍 CIUDAD DE MÉXICO / GLOBAL</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.met { padding: 1rem; text-align: center; border-right: 1px solid var(--bdr); }
+.met:last-child { border-right: none; }
+@media (max-width: 560px) {
+  #metrics { grid-template-columns: repeat(2,1fr) !important; }
+  .met:nth-child(2) { border-right: none; }
+  .met:nth-child(1), .met:nth-child(2) { border-bottom: 1px solid var(--bdr); }
+}
+.met-num {
+  font-family: var(--mono);
+  font-size: clamp(1.2rem,3vw,2.1rem);
+  font-weight: 700; color: var(--white); line-height: 1; display: inline;
+}
+.met-sfx { font-family: var(--mono); font-size: .75em; color: var(--gold); }
+.met-lbl {
+  font-family: var(--mono);
+  font-size: clamp(.42rem,1vw,.52rem);
+  color: var(--gr); letter-spacing: .08em; text-transform: uppercase; margin-top: .35rem;
+}
+@media (min-width: 1024px) {
+  .hud { display: flex !important; align-items: center; position: absolute; z-index: 3; }
+  .hud-L { left: 3vw; top: 50%; transform: translateY(-55%); }
+  .hud-R { right: 3vw; top: 50%; transform: translateY(-55%); flex-direction: row-reverse; }
+}
+.hud-panel {
+  background: rgba(8,24,28,.4); border: 1px solid var(--bdr);
+  padding: .9rem 1.1rem; backdrop-filter: blur(16px);
+  border-radius: 1.2rem; min-width: 140px;
+}
+.hud-L-line { width: clamp(20px,2.5vw,55px); height: 1px; background: linear-gradient(90deg,transparent,rgba(0,168,143,.4)); }
+.hud-R-line { width: clamp(20px,2.5vw,55px); height: 1px; background: linear-gradient(270deg,transparent,rgba(0,168,143,.4)); }
+@media (max-width: 480px) {
+  #sphere-wrap { width: min(75vw,260px) !important; height: min(75vw,260px) !important; }
+}
+</style>
+
+<script>
+/* Counter animation */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.met-num[data-t]').forEach(el => {
+    const target = +(el as HTMLElement).dataset.t!;
+    el.textContent = String(target);
+    const obs = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      obs.disconnect();
+      let t0: number | null = null;
+      const dur = 1800;
+      function step(ts: number) {
+        if (!t0) t0 = ts;
+        const p = Math.min((ts - t0) / dur, 1);
+        el.textContent = String(Math.round(p * target));
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = String(target);
+      }
+      requestAnimationFrame(step);
+    }, { threshold: .5 });
+    obs.observe(el);
+  });
+})();
+</script>
+
+<!-- Three.js sphere — fully optional, loads after page is visible -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r145/three.min.js" defer></script>
+<script defer>
+window.addEventListener('load', function () {
+  if (typeof THREE === 'undefined') return;
+  try {
+    const wrap = document.getElementById('sphere-wrap');
+    const canvas = document.getElementById('three-canvas');
+    if (!wrap || !canvas) return;
+    const W = wrap.offsetWidth, H = wrap.offsetHeight;
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(45, W / H, .1, 100);
+    cam.position.z = 3.8;
+    const rend = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    rend.setSize(W, H); rend.setPixelRatio(Math.min(devicePixelRatio, 2));
+    rend.setClearColor(0, 0);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    const pl1 = new THREE.PointLight(0xffffff, 1.5, 100);
+    pl1.position.set(5, 5, 5); scene.add(pl1);
+    const pl2 = new THREE.PointLight(0xEE765D, 2, 100);
+    pl2.position.set(-5, -5, -2); scene.add(pl2);
+    const group = new THREE.Group(); scene.add(group);
+    const sphere = new THREE.Mesh(
+      new THREE.SphereGeometry(1.0, 32, 32),
+      new THREE.MeshPhysicalMaterial({ color: 0x00A88F, roughness: 0.2, metalness: 0.1, clearcoat: 1.0, clearcoatRoughness: 0.1 })
+    );
+    sphere.position.set(-0.6, 0.4, 0); group.add(sphere);
+    const cvs = document.createElement('canvas'); cvs.width = 1; cvs.height = 256;
+    const ctx = cvs.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 0, 256);
+    grad.addColorStop(0, '#F3C663'); grad.addColorStop(1, '#EE765D');
+    ctx.fillStyle = grad; ctx.fillRect(0, 0, 1, 256);
+    const cap = new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.35, 0.8, 4, 32),
+      new THREE.MeshPhysicalMaterial({ map: new THREE.CanvasTexture(cvs), roughness: 0.3, metalness: 0.1 })
+    );
+    cap.position.set(1.0, -0.2, 0.5); cap.rotation.z = Math.PI / 5; group.add(cap);
+    const box = new THREE.Mesh(
+      new THREE.BoxGeometry(0.9, 0.9, 0.1),
+      new THREE.MeshPhysicalMaterial({ color: 0x0D0E1F, transparent: true, opacity: 0.6, roughness: 0.1, metalness: 0.1 })
+    );
+    box.position.set(-0.2, -0.6, 0.9); box.rotation.set(-0.2, 0.4, 0.1); group.add(box);
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(1.6, 0.005, 16, 100),
+      new THREE.MeshBasicMaterial({ color: 0x00A88F, transparent: true, opacity: 0.15 })
+    );
+    ring.rotation.x = Math.PI / 2.2; group.add(ring);
+    const clk = new THREE.Clock();
+    (function anim() {
+      requestAnimationFrame(anim);
+      const t = clk.getElapsedTime();
+      sphere.position.y = 0.4 + Math.sin(t * 1.5) * 0.08;
+      cap.position.y = -0.2 + Math.sin(t * 1.8 + 1) * 0.1;
+      box.position.y = -0.6 + Math.sin(t * 1.2 + 2) * 0.06;
+      box.rotation.x = -0.2 + Math.sin(t) * 0.05;
+      group.rotation.y += 0.002;
+      ring.rotation.x += 0.001;
+      rend.render(scene, cam);
+    })();
+    window.addEventListener('resize', () => {
+      const nW = wrap.offsetWidth, nH = wrap.offsetHeight;
+      cam.aspect = nW / nH; cam.updateProjectionMatrix(); rend.setSize(nW, nH);
+    }, { passive: true });
+    if (window.matchMedia('(hover:hover)').matches) {
+      document.addEventListener('mousemove', e => {
+        const fx = (e.clientX / innerWidth - .5) * .25;
+        const fy = (e.clientY / innerHeight - .5) * .16;
+        cam.position.x += (fx - cam.position.x) * .04;
+        cam.position.y += (-fy - cam.position.y) * .04;
+      }, { passive: true });
+    }
+  } catch (e) { console.warn('Three.js sphere failed:', e); }
+});
+</script>
