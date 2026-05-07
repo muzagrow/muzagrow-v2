@@ -110,7 +110,7 @@ export const BUYER_PROFILES = [
 ];
 
 export const TOOLS = [
-  'n8n', 'OpenAI', 'Claude', 'Make', 'Flowise',
-  'Notion', 'Airtable', 'WhatsApp', 'HubSpot', 'Slack',
-  'Google Workspace', 'LangChain', 'Zapier',
+  'n8n', 'OpenAI', 'Claude', 'Make',
+  'Notion', 'WhatsApp', 'Slack',
+  'Google Workspace',
 ];
