@@ -38,6 +38,15 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+/* Prevenir desbordamiento de texto en todos los elementos */
+h1, h2, h3, h4, h5, h6, p, li, span, a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+/* Contenedores de grid no deben desbordarse */
+.card, article {
+  min-width: 0;
+}
 ::selection { background: rgba(255,255,255,0.2); color: #FFF; }
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
