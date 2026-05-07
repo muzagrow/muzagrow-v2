@@ -23,7 +23,7 @@ const posts = (await getCollection('blog'))
           </div>
 
           <h3 class="blog-title">
-            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
           </h3>
 
           <p class="blog-excerpt">{post.data.excerpt}</p>
@@ -39,7 +39,7 @@ const posts = (await getCollection('blog'))
             </div>
           )}
 
-          <a href={`/blog/${post.slug}`} class="blog-link">LEER CASO →</a>
+          <a href={`/blog/${post.id}`} class="blog-link">LEER CASO →</a>
         </article>
       ))}
     </div>

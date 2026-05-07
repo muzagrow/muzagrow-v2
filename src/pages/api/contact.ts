@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { createResendClient, buildEmailHtml } from '@/lib/resend';
 
 export const prerender = false;
+// Note: requires server adapter (e.g. @astrojs/vercel) for production
 
 const schema = z.object({
   nombre: z.string().min(2).max(100),

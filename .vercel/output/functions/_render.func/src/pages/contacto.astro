@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import ContactForm from '@/components/forms/ContactForm';
+import { SITE } from '@/lib/constants';
+---
+
+<BaseLayout
+  title="Contacto | MUZA GROW"
+  description="Agenda un diagnóstico gratuito con Moises. Sin formularios infinitos, sin ventas de alta presión."
+>
+  <Header ctaLabel="INICIO" ctaHref="/" />
+  <main style="padding-top:5rem;">
+
+    <section class="section" style="padding-top:4rem;padding-bottom:6rem;">
+      <div class="s-tag">// Siguiente paso</div>
+      <h1 class="s-headline">
+        Hablemos de tu<br><em>desafío operacional.</em>
+      </h1>
+
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;">
+
+        <!-- Left: Contact options -->
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <p style="font-family:var(--body);font-size:1rem;color:var(--gr);line-height:1.75;">
+            Moises revisa cada mensaje personalmente. Sin bots, sin formularios de pre-calificación.
+            Cuéntame tu desafío — de ahí sale un diagnóstico real.
+          </p>
+
+          <!-- Contact methods -->
+          <div class="cc-stack" style="align-items:stretch;">
+            <a
+              href={SITE.whatsapp}
+              class="cc primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="cc-icon">💬</div>
+              <div class="cc-body">
+                <div class="cc-title">WhatsApp directo</div>
+                <div class="cc-desc">Respuesta en &lt; 2h en horario CDMX</div>
+              </div>
+              <div class="cc-arr">→</div>
+            </a>
+
+            <a href={`mailto:${SITE.email}`} class="cc">
+              <div class="cc-icon">✉️</div>
+              <div class="cc-body">
+                <div class="cc-title">Email</div>
+                <div class="cc-desc">{SITE.email}</div>
+              </div>
+              <div class="cc-arr">→</div>
+            </a>
+          </div>
+
+          <!-- What to expect -->
+          <div style="background:var(--s2);border:1px solid var(--bdr);border-radius:1.2rem;padding:1.5rem;">
+            <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;">Qué esperar</div>
+            <ol style="list-style:none;display:flex;flex-direction:column;gap:.85rem;counter-reset:steps;">
+              {[
+                'Recibes respuesta en menos de 24h',
+                'Conversación directa con Moises',
+                'Diagnóstico del problema (sin costo)',
+                'Propuesta de solución clara y honesta',
+                'Decision en tus manos — sin presión',
+              ].map((step, i) => (
+                <li style="font-family:var(--body);font-size:.88rem;color:var(--gr);display:flex;align-items:flex-start;gap:.75rem;line-height:1.5;">
+                  <span style="font-family:var(--mono);font-size:.6rem;color:var(--teal);background:rgba(0,168,143,.1);border:1px solid rgba(0,168,143,.2);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem;">
+                    {i + 1}
+                  </span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <!-- Calendly embed option -->
+          {SITE.calendlyUrl && SITE.calendlyUrl !== 'https://calendly.com/moises-muzagrow' && (
+            <div style="background:rgba(243,169,61,.04);border:1px solid rgba(243,169,61,.2);border-radius:1.2rem;padding:1.5rem;">
+              <div style="font-family:var(--mono);font-size:.55rem;color:var(--orange);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;">O agenda directo</div>
+              <p style="font-family:var(--body);font-size:.88rem;color:var(--gr);margin-bottom:1rem;line-height:1.6;">
+                Prefiere una videollamada? Selecciona el tiempo que te funcione.
+              </p>
+              <a
+                href={SITE.calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style="font-family:var(--mono);font-size:.6rem;color:var(--orange);letter-spacing:.12em;text-decoration:none;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s;"
+              >
+                ABRIR CALENDLY →
+              </a>
+            </div>
+          )}
+        </div>
+
+        <!-- Right: Contact form -->
+        <div id="form">
+          <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;">
+            FORMULARIO DE CONTACTO
+          </div>
+          <ContactForm client:load />
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+@media (max-width: 860px) {
+  div[style*="grid-template-columns:1fr 1.4fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>

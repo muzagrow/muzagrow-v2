@@ -1,0 +1,136 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Hero from '@/components/sections/Hero.astro';
+import ValueProp from '@/components/sections/ValueProp.astro';
+import Services from '@/components/sections/Services.astro';
+import Process from '@/components/sections/Process.astro';
+import BlogPreview from '@/components/sections/BlogPreview.astro';
+import CTA from '@/components/sections/CTA.astro';
+---
+
+<BaseLayout
+  title="MUZA GROW | Infraestructura de Crecimiento con IA — CDMX"
+  description="Diseñamos infraestructura de crecimiento para corporativos en LATAM. Service Design + Automatización IA para que tu equipo haga lo que importa."
+>
+  <Header />
+  <main>
+    <Hero />
+    <ValueProp />
+    <Services />
+
+    <!-- Manifesto section -->
+    <section
+      id="manifesto"
+      style="background:rgba(255,255,255,0.02);padding:clamp(4rem,11vw,10rem) var(--px);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);position:relative;overflow:hidden;z-index:2;"
+      aria-labelledby="man-h"
+    >
+      <!-- Animated tape lines -->
+      <div style="position:absolute;left:-5%;right:-5%;height:2px;background:linear-gradient(90deg,transparent,var(--teal),var(--coral),var(--gold),transparent);background-size:200% 100%;animation:holo 4s ease infinite;top:9%;transform:rotate(-.4deg);" aria-hidden="true"></div>
+      <div style="position:absolute;left:-5%;right:-5%;height:2px;background:linear-gradient(90deg,transparent,var(--teal),var(--coral),var(--gold),transparent);background-size:200% 100%;animation:holo 4s ease infinite;bottom:11%;transform:rotate(.35deg);" aria-hidden="true"></div>
+
+      <!-- Quote mark -->
+      <div style="position:absolute;top:-3rem;left:4vw;font-family:var(--ser);font-size:28vw;color:rgba(255,255,255,.03);pointer-events:none;user-select:none;line-height:1;" aria-hidden="true">"</div>
+
+      <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;">
+        <div class="s-tag">// Manifiesto</div>
+        <h2 id="man-h" style="font-family:var(--body);font-weight:800;letter-spacing:-.02em;line-height:1.05;">
+          <span style="font-size:clamp(2.4rem,6vw,6.5rem);color:var(--white);display:block;">TU NEGOCIO CRECE.</span>
+          <span style="font-family:var(--ser);font-size:clamp(2.4rem,6vw,6.5rem);color:var(--gr);font-weight:400;font-style:italic;display:block;">tu operación, no tanto.</span>
+          <div style="width:72px;height:1px;background:var(--teal);margin:2.2rem 0;" aria-hidden="true"></div>
+          <span style="font-size:clamp(2.4rem,6vw,6.5rem);color:var(--gold);display:block;">CADA HORA MANUAL QUE CONSUMES</span>
+          <span style="font-family:var(--ser);font-size:clamp(2.4rem,6vw,6.5rem);color:var(--white);font-weight:400;font-style:italic;display:block;">es una hora que <em style="color:var(--coral);font-style:normal;font-weight:800;">no escalas.</em></span>
+        </h2>
+        <div style="height:2.5rem;" aria-hidden="true"></div>
+        <p style="font-family:var(--body);font-size:clamp(.95rem,2vw,2rem);color:rgba(255,255,255,.7);font-weight:400;display:block;margin-bottom:.5rem;">Eso es exactamente lo que venimos a cambiar.</p>
+        <p style="font-family:var(--body);font-size:clamp(.95rem,2vw,2rem);color:var(--white);font-weight:600;display:block;margin-bottom:.5rem;">Automatización real. Sistemas que trabajan cuando tú duermes.</p>
+        <p style="font-family:var(--ser);font-size:clamp(.88rem,1.8vw,1.8rem);color:var(--gr);font-style:italic;">Sin excusas. Sin límites. Con resultados.</p>
+      </div>
+    </section>
+
+    <Process />
+    <BlogPreview />
+
+    <!-- FAQ section -->
+    <section class="section" id="faq" aria-labelledby="faq-h">
+      <div class="faq-layout">
+        <div>
+          <div class="s-tag">Preguntas frecuentes</div>
+          <h2 class="s-headline" id="faq-h" style="margin-bottom:1.5rem">
+            Todo lo que<br><em>necesitas saber.</em>
+          </h2>
+          <p style="font-family:var(--body);font-size:.93rem;color:var(--gr);line-height:1.75;margin-top:.5rem;margin-bottom:1.6rem;">
+            Si tienes una duda que no está aquí, escríbenos directamente. Moises responde.
+          </p>
+          <a
+            href="mailto:hola@muzagrow.com"
+            style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;color:#000;background:var(--white);text-decoration:none;padding:.55rem 1.4rem;border-radius:20px;display:inline-block;transition:box-shadow .2s;"
+          >
+            Escribir al equipo
+          </a>
+        </div>
+
+        <div class="faq-list">
+          {[
+            {
+              q: '¿Cuánto cuesta?',
+              a: 'Cada proyecto es diferente. Ofrecemos un diagnóstico gratuito donde definimos el alcance y costo exacto antes de cualquier compromiso. Sin sorpresas.',
+            },
+            {
+              q: '¿Cuánto tiempo tarda en activarse?',
+              a: 'Depende del alcance. Algunos sistemas se activan en días, proyectos más complejos pueden tomar 4-8 semanas. Lo definimos juntos en el diagnóstico.',
+            },
+            {
+              q: '¿Necesito un equipo técnico propio?',
+              a: 'No. Diseñamos, construimos y documentamos toda la infraestructura. Solo necesitas saber qué resultados quieres — nosotros construimos el camino.',
+            },
+            {
+              q: '¿Qué herramientas usan?',
+              a: 'Trabajamos con n8n, GPT Assistants, Flowise, LangChain, Make, y más de 400 integraciones. Seleccionamos las mejores herramientas para cada problema específico.',
+            },
+            {
+              q: '¿Qué pasa si algo falla después de lanzar?',
+              a: 'Todos los proyectos incluyen soporte post-deploy. Somos tu equipo de infraestructura — no un proveedor que desaparece después de entregar.',
+            },
+            {
+              q: '¿Cómo es el proceso de trabajo con Moises?',
+              a: 'Empezamos con una conversación directa (sin formularios). Entendemos el problema, diseñamos la solución, la construimos y la optimizamos juntos. Tú decides el ritmo.',
+            },
+          ].map((item, i) => (
+            <div class="faq-item">
+              <button class="faq-btn" aria-expanded="false" aria-controls={`fa-${i}`}>
+                <span>{item.q}</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-body" id={`fa-${i}`}>
+                <p>{item.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-btn').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const bd = document.getElementById(b.getAttribute('aria-controls')!);
+        if (bd) bd.classList.remove('open');
+      });
+      if (!open) {
+        const ans = document.getElementById(btn.getAttribute('aria-controls')!);
+        btn.setAttribute('aria-expanded', 'true');
+        if (ans) ans.classList.add('open');
+      }
+    });
+  });
+</script>
