@@ -6,8 +6,8 @@ export const SITE = {
   email: 'hola@muzagrow.com',
   location: 'Ciudad de México, LATAM',
   calendlyUrl: import.meta.env.PUBLIC_CALENDLY_URL || 'https://calendly.com/moises-muzagrow',
-  whatsapp: '', // TODO: agregar número real: 'https://wa.me/521XXXXXXXXXX?text=Hola%2C%20quiero%20conocer%20MUZA%20GROW'
-  linkedin: '', // TODO: agregar LinkedIn real
+  whatsapp: '',
+  linkedin: 'https://mx.linkedin.com/company/muza-desarollo',
 };
 
 export const NAV_LINKS = [
