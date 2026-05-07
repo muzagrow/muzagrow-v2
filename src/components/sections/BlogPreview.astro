@@ -7,98 +7,198 @@ const posts = (await getCollection('blog'))
   .slice(0, 3);
 ---
 
-{posts.length > 0 && (
-  <section class="section" id="blog" aria-labelledby="blog-h">
-    <div class="s-tag">Casos de éxito</div>
-    <h2 class="s-headline" id="blog-h">
-      Resultados<br><em>reales, métricas reales.</em>
-    </h2>
+<section class="section" id="blog" aria-labelledby="blog-h">
+  <div class="blog-header">
+    <div>
+      <div class="s-tag">Blog</div>
+      <h2 class="s-headline" id="blog-h">
+        Lo que aprendemos<br><em>mientras construimos.</em>
+      </h2>
+    </div>
+    <a href="/blog" class="blog-all-link">Ver todas las publicaciones →</a>
+  </div>
 
+  {posts.length === 0 ? (
+    <div class="blog-empty">
+      <div class="blog-empty-tag">// próximamente</div>
+      <p class="blog-empty-text">
+        Los primeros artículos se publican conforme avanzamos con proyectos reales.
+        Preferimos cero artículos honestos que diez inventados.
+      </p>
+    </div>
+  ) : (
     <div class="blog-grid">
-      {posts.map(post => (
-        <article class="card blog-card">
-          <div class="blog-meta">
+      {posts.map((post, i) => (
+        <article class:list={['blog-card', { 'blog-card--featured': i === 0 }]}>
+          <div class="blog-card-meta">
             <Badge color="teal">{post.data.industry}</Badge>
-            <span class="blog-date">{post.data.pubDate.toLocaleDateString('es-MX', { month: 'short', year: 'numeric' })}</span>
+            <span class="blog-card-date">
+              {post.data.pubDate.toLocaleDateString('es-MX', { month: 'short', year: 'numeric' })}
+            </span>
           </div>
-
-          <h3 class="blog-title">
+          <h3 class="blog-card-title">
             <a href={`/blog/${post.id}`}>{post.data.title}</a>
           </h3>
-
-          <p class="blog-excerpt">{post.data.excerpt}</p>
-
-          {post.data.metrics && (
-            <div class="blog-metrics">
-              {post.data.metrics.map((m: { label: string; value: string }) => (
-                <div class="blog-metric">
-                  <span class="blog-metric-val">{m.value}</span>
-                  <span class="blog-metric-lbl">{m.label}</span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <a href={`/blog/${post.id}`} class="blog-link">LEER CASO →</a>
+          <p class="blog-card-excerpt">{post.data.excerpt}</p>
+          <a href={`/blog/${post.id}`} class="blog-card-link">Leer más →</a>
         </article>
       ))}
     </div>
-
-    <div style="text-align:center;margin-top:3rem;">
-      <a href="/blog" class="view-all-link">Ver todos los casos →</a>
-    </div>
-  </section>
-)}
+  )}
+</section>
 
 <style>
+.blog-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 0;
+}
+.blog-header .s-headline { margin-bottom: 0; }
+
+.blog-all-link {
+  font-family: var(--mono);
+  font-size: .6rem;
+  color: var(--gr);
+  letter-spacing: .12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color .2s;
+  flex-shrink: 0;
+  padding-bottom: .5rem;
+}
+.blog-all-link:hover { color: var(--white); }
+
+@media (max-width: 600px) {
+  .blog-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* Grid */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 1.2rem;
+  margin-top: 2.5rem;
 }
-@media (max-width: 860px) { .blog-grid { grid-template-columns: 1fr; } }
-@media (max-width: 1100px) and (min-width: 861px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
-
-.blog-card { display: flex; flex-direction: column; gap: .85rem; }
-.blog-meta { display: flex; align-items: center; gap: .75rem; }
-.blog-date { font-family: var(--mono); font-size: .55rem; color: var(--gr-d); }
-
-.blog-title {
-  font-family: var(--body); font-size: 1.15rem; font-weight: 700;
-  line-height: 1.3; color: var(--white);
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: 1fr 1fr; }
+  .blog-card--featured { grid-column: span 2; }
 }
-.blog-title a { text-decoration: none; color: inherit; transition: color .2s; }
-.blog-title a:hover { color: var(--teal); }
+@media (max-width: 560px) {
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-card--featured { grid-column: span 1; }
+}
 
-.blog-excerpt { font-family: var(--body); font-size: .88rem; color: var(--gr); line-height: 1.65; flex: 1; }
-
-.blog-metrics {
-  display: flex; gap: 1.2rem; flex-wrap: wrap;
-  padding: .9rem; background: var(--s2); border-radius: .75rem;
+/* Card base */
+.blog-card {
+  background: var(--s1);
   border: 1px solid var(--bdr);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  transition: border-color .3s, transform .3s;
+  min-width: 0;
 }
-.blog-metric { display: flex; flex-direction: column; gap: .2rem; }
-.blog-metric-val {
-  font-family: var(--mono); font-size: 1.4rem; font-weight: 700;
-  color: var(--teal); line-height: 1;
-}
-.blog-metric-lbl {
-  font-family: var(--mono); font-size: .48rem; color: var(--gr-d);
-  letter-spacing: .15em; text-transform: uppercase;
+.blog-card:hover {
+  border-color: var(--bdr-g);
+  transform: translateY(-3px);
 }
 
-.blog-link {
-  font-family: var(--mono); font-size: .6rem; color: var(--gold);
-  letter-spacing: .13em; text-decoration: none; text-transform: uppercase;
-  display: inline-flex; align-items: center; gap: .4rem;
-  transition: gap .2s; margin-top: .3rem;
+/* Featured card más grande */
+.blog-card--featured {
+  padding: 2.4rem;
+  background: rgba(0,168,143,.04);
+  border-color: rgba(0,168,143,.15);
 }
-.blog-link:hover { gap: .8rem; }
+.blog-card--featured .blog-card-title {
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+}
 
-.view-all-link {
-  font-family: var(--mono); font-size: .65rem; color: var(--gr);
-  letter-spacing: .12em; text-decoration: none; text-transform: uppercase;
+/* Meta */
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.blog-card-date {
+  font-family: var(--mono);
+  font-size: .55rem;
+  color: var(--gr-d);
+  letter-spacing: .08em;
+}
+
+/* Título */
+.blog-card-title {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+.blog-card-title a {
+  text-decoration: none;
+  color: var(--white);
   transition: color .2s;
 }
-.view-all-link:hover { color: var(--white); }
+.blog-card-title a:hover { color: var(--teal); }
+
+/* Excerpt */
+.blog-card-excerpt {
+  font-family: var(--body);
+  font-size: .85rem;
+  color: var(--gr);
+  line-height: 1.7;
+  flex: 1;
+  overflow-wrap: break-word;
+  /* Limitar a 3 líneas en cards pequeñas */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-card--featured .blog-card-excerpt {
+  -webkit-line-clamp: 5;
+}
+
+/* Link */
+.blog-card-link {
+  font-family: var(--mono);
+  font-size: .58rem;
+  color: var(--teal);
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: letter-spacing .2s;
+  margin-top: auto;
+}
+.blog-card-link:hover { letter-spacing: .16em; }
+
+/* Empty state */
+.blog-empty {
+  margin-top: 2rem;
+  padding: 3rem 2rem;
+  border: 1px dashed var(--bdr);
+  border-radius: 1.5rem;
+  text-align: center;
+}
+.blog-empty-tag {
+  font-family: var(--mono);
+  font-size: .6rem;
+  color: var(--gr-d);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.blog-empty-text {
+  font-family: var(--body);
+  font-size: .95rem;
+  color: var(--gr);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
 </style>

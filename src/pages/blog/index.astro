@@ -7,74 +7,109 @@ import Badge from '@/components/ui/Badge.astro';
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featured = posts.filter(p => p.data.featured);
+const rest = posts.filter(p => !p.data.featured);
 ---
 
 <BaseLayout
-  title="Blog — Casos de Éxito | MUZA GROW"
-  description="Casos de éxito reales con métricas comprobadas. Cómo MUZA GROW resuelve problemas operacionales en corporativos de LATAM."
+  title="Blog | MUZA GROW"
+  description="Artículos sobre automatización, service design y crecimiento operacional para empresas en LATAM."
 >
   <Header />
   <main style="padding-top:5rem;">
 
-    <section class="section" style="padding-top:4rem;padding-bottom:2rem;">
-      <div class="s-tag">Casos de éxito</div>
+    <!-- Hero -->
+    <section class="section" style="padding-top:4rem;padding-bottom:3rem;">
+      <div class="s-tag">Blog</div>
       <h1 class="s-headline">
-        Resultados reales,<br><em>métricas reales.</em>
+        Ideas, casos y<br><em>aprendizajes reales.</em>
       </h1>
-      <p style="font-family:var(--body);font-size:1.05rem;color:var(--gr);line-height:1.75;max-width:600px;">
-        No "case studies" inventados. Cada post documenta un proyecto real:
-        el problema del cliente, lo que construimos y los resultados medibles.
+      <p style="font-family:var(--body);font-size:1rem;color:var(--gr);line-height:1.75;max-width:560px;">
+        Escribimos sobre lo que aprendemos construyendo — automatización, service design,
+        y cómo las empresas en LATAM pueden operar mejor sin contratar más gente.
       </p>
     </section>
 
+    <!-- Posts -->
     <section class="section" style="padding-top:0;padding-bottom:6rem;">
+
       {posts.length === 0 ? (
-        <div style="text-align:center;padding:4rem;border:1px dashed var(--bdr);border-radius:1.5rem;">
-          <div style="font-family:var(--mono);font-size:.6rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;">
-            // próximamente
-          </div>
-          <p style="font-family:var(--body);font-size:1rem;color:var(--gr);max-width:400px;margin:0 auto;line-height:1.7;">
-            Los primeros casos de éxito se publicarán conforme completemos proyectos.
-            Honestidad sobre social proof fabricado.
+
+        <!-- Empty state honesto -->
+        <div style="text-align:center;padding:5rem 2rem;border:1px dashed var(--bdr);border-radius:2rem;">
+          <div style="font-size:3rem;margin-bottom:1.5rem;">✍️</div>
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;">// en construcción</div>
+          <h2 style="font-family:var(--body);font-size:1.5rem;font-weight:700;margin-bottom:1rem;">
+            Los primeros artículos ya vienen
+          </h2>
+          <p style="font-family:var(--body);font-size:.95rem;color:var(--gr);max-width:420px;margin:0 auto 2rem;line-height:1.75;">
+            Publicamos cuando tenemos algo real que mostrar. Sin relleno, sin artículos genéricos de SEO.
           </p>
+          <a href="/contacto" style="font-family:var(--mono);font-size:.6rem;color:var(--white);background:var(--s2);border:1px solid var(--bdr);padding:.55rem 1.4rem;border-radius:20px;text-decoration:none;letter-spacing:.12em;display:inline-block;">
+            MIENTRAS TANTO → HABLA CON MOISES
+          </a>
         </div>
+
       ) : (
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;">
-          {posts.map(post => (
-            <article class="card" style="display:flex;flex-direction:column;gap:.85rem;">
-              <div style="display:flex;align-items:center;gap:.75rem;">
-                <Badge color="teal">{post.data.industry}</Badge>
-                <span style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);">
-                  {post.data.pubDate.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' })}
-                </span>
-              </div>
 
-              <h2 style="font-family:var(--body);font-size:1.15rem;font-weight:700;line-height:1.3;">
-                <a href={`/blog/${post.id}`} style="text-decoration:none;color:inherit;transition:color .2s;">
-                  {post.data.title}
-                </a>
-              </h2>
+        <div class="blog-layout">
 
-              <p style="font-family:var(--body);font-size:.88rem;color:var(--gr);line-height:1.65;flex:1;">
-                {post.data.excerpt}
-              </p>
-
-              {post.data.metrics && (
-                <div style="display:flex;gap:1rem;flex-wrap:wrap;padding:.9rem;background:var(--s2);border-radius:.75rem;border:1px solid var(--bdr);">
-                  {post.data.metrics.map((m: { label: string; value: string }) => (
-                    <div style="display:flex;flex-direction:column;gap:.2rem;">
-                      <span style="font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--teal);line-height:1;">{m.value}</span>
-                      <span style="font-family:var(--mono);font-size:.48rem;color:var(--gr-d);letter-spacing:.15em;text-transform:uppercase;">{m.label}</span>
-                    </div>
-                  ))}
+          <!-- Lista principal -->
+          <div class="blog-list">
+            {posts.map((post, i) => (
+              <article class="blog-row">
+                <div class="blog-row-left">
+                  <div class="blog-row-meta">
+                    <Badge color="teal">{post.data.industry}</Badge>
+                    {post.data.duration && (
+                      <span class="blog-row-duration">{post.data.duration}</span>
+                    )}
+                    <span class="blog-row-date">
+                      {post.data.pubDate.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </span>
+                  </div>
+                  <h2 class="blog-row-title">
+                    <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                  </h2>
+                  <p class="blog-row-excerpt">{post.data.excerpt}</p>
+                  <a href={`/blog/${post.id}`} class="blog-row-link">Leer artículo →</a>
                 </div>
-              )}
 
-              <a href={`/blog/${post.id}`} style="font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.13em;text-decoration:none;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s;margin-top:.3rem;">
-                LEER CASO →
-              </a>
-            </article>
-          ))}
+                {post.data.metrics && (
+                  <div class="blog-row-metrics">
+                    {post.data.metrics.slice(0, 2).map((m: { label: string; value: string }) => (
+                      <div class="blog-metric-item">
+                        <span class="blog-metric-val">{m.value}</span>
+                        <span class="blog-metric-lbl">{m.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="blog-sidebar">
+            <div class="sidebar-block">
+              <div class="sidebar-title">¿Tienes un desafío operacional?</div>
+              <p class="sidebar-text">
+                Moises lo analiza en una llamada gratuita de diagnóstico.
+                Sin compromiso.
+              </p>
+              <a href="/contacto" class="sidebar-cta">Agendar diagnóstico →</a>
+            </div>
+
+            <div class="sidebar-block">
+              <div class="sidebar-title">Servicios</div>
+              <ul class="sidebar-links">
+                <li><a href="/servicios#discovery">Growth Architecture Discovery</a></li>
+                <li><a href="/servicios#build">Automation Design & Build</a></li>
+                <li><a href="/servicios#optimize">Ongoing Optimization</a></li>
+              </ul>
+            </div>
+          </aside>
         </div>
       )}
     </section>
@@ -84,9 +119,167 @@ const posts = (await getCollection('blog'))
 </BaseLayout>
 
 <style>
-@media (max-width: 860px) {
-  div[style*="grid-template-columns:repeat(3,1fr)"] {
-    grid-template-columns: 1fr !important;
-  }
+.blog-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 4rem;
+  align-items: start;
 }
+@media (max-width: 860px) {
+  .blog-layout { grid-template-columns: 1fr; }
+  .blog-sidebar { display: none; }
+}
+
+/* Lista de posts */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.blog-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2.2rem 0;
+  border-bottom: 1px solid var(--bdr);
+  min-width: 0;
+}
+.blog-row:first-child { padding-top: 0; }
+.blog-row:last-child { border-bottom: none; }
+
+.blog-row-left { flex: 1; min-width: 0; }
+
+.blog-row-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-bottom: .9rem;
+}
+.blog-row-duration, .blog-row-date {
+  font-family: var(--mono);
+  font-size: .55rem;
+  color: var(--gr-d);
+  letter-spacing: .08em;
+}
+
+.blog-row-title {
+  font-family: var(--body);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: .75rem;
+  overflow-wrap: break-word;
+}
+.blog-row-title a {
+  text-decoration: none;
+  color: var(--white);
+  transition: color .2s;
+}
+.blog-row-title a:hover { color: var(--teal); }
+
+.blog-row-excerpt {
+  font-family: var(--body);
+  font-size: .9rem;
+  color: var(--gr);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  overflow-wrap: break-word;
+}
+
+.blog-row-link {
+  font-family: var(--mono);
+  font-size: .58rem;
+  color: var(--teal);
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: letter-spacing .2s;
+}
+.blog-row-link:hover { letter-spacing: .16em; }
+
+/* Métricas en row */
+.blog-row-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  flex-shrink: 0;
+  background: var(--s1);
+  border: 1px solid var(--bdr);
+  border-radius: 1rem;
+  padding: 1.2rem 1.4rem;
+  min-width: 120px;
+}
+@media (max-width: 560px) { .blog-row-metrics { display: none; } }
+
+.blog-metric-item { display: flex; flex-direction: column; gap: .2rem; }
+.blog-metric-val {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1;
+}
+.blog-metric-lbl {
+  font-family: var(--mono);
+  font-size: .45rem;
+  color: var(--gr-d);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+/* Sidebar */
+.blog-sidebar {
+  position: sticky;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.sidebar-block {
+  background: var(--s1);
+  border: 1px solid var(--bdr);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+}
+.sidebar-title {
+  font-family: var(--body);
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: .75rem;
+}
+.sidebar-text {
+  font-family: var(--body);
+  font-size: .82rem;
+  color: var(--gr);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+.sidebar-cta {
+  font-family: var(--mono);
+  font-size: .58rem;
+  color: var(--teal);
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: letter-spacing .2s;
+}
+.sidebar-cta:hover { letter-spacing: .15em; }
+.sidebar-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.sidebar-links a {
+  font-family: var(--body);
+  font-size: .82rem;
+  color: var(--gr);
+  text-decoration: none;
+  transition: color .2s;
+  overflow-wrap: break-word;
+}
+.sidebar-links a:hover { color: var(--white); }
 </style>
