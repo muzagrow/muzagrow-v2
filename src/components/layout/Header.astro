@@ -13,7 +13,10 @@ const pathname = Astro.url.pathname;
 <header>
   <nav id="nav" aria-label="Navegación principal">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">MUZA<span class="dot">.</span>GROW</a>
+      <a href="/" class="nav-logo" aria-label="MUZA GROW — Inicio">
+        <img src="/images/logo-white.png" alt="MUZA GROW" class="logo-img" height="36" />
+        <img src="/images/logo-icon.png" alt="MUZA GROW" class="logo-icon" height="36" />
+      </a>
 
       <ul class="nav-links" role="list">
         {NAV_LINKS.map(link => (
@@ -42,4 +45,11 @@ const pathname = Astro.url.pathname;
 
 <style>
   .nav-links a.active { color: white; }
+  .nav-logo { display: flex; align-items: center; }
+  .logo-img { display: block; width: auto; max-height: 36px; object-fit: contain; }
+  .logo-icon { display: none; width: auto; max-height: 36px; object-fit: contain; }
+  @media (max-width: 480px) {
+    .logo-img  { display: none; }
+    .logo-icon { display: block; }
+  }
 </style>
