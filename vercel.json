@@ -1,0 +1,5 @@
+{
+  "installCommand": "pnpm install --ignore-scripts && pnpm rebuild esbuild sharp",
+  "buildCommand": "pnpm run build",
+  "framework": "astro"
+}
