@@ -30,21 +30,18 @@ import { SITE } from '@/lib/constants';
 
           <!-- Contact methods -->
           <div class="cc-stack" style="align-items:stretch;">
-            <a
-              href={SITE.whatsapp}
-              class="cc primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="cc-icon">💬</div>
-              <div class="cc-body">
-                <div class="cc-title">WhatsApp directo</div>
-                <div class="cc-desc">Respuesta en &lt; 2h en horario CDMX</div>
-              </div>
-              <div class="cc-arr">→</div>
-            </a>
+            {SITE.whatsapp && (
+              <a href={SITE.whatsapp} class="cc primary" target="_blank" rel="noopener noreferrer">
+                <div class="cc-icon">💬</div>
+                <div class="cc-body">
+                  <div class="cc-title">WhatsApp directo</div>
+                  <div class="cc-desc">Respuesta en &lt; 2h en horario CDMX</div>
+                </div>
+                <div class="cc-arr">→</div>
+              </a>
+            )}
 
-            <a href={`mailto:${SITE.email}`} class="cc">
+            <a href={`mailto:${SITE.email}`} class="cc primary">
               <div class="cc-icon">✉️</div>
               <div class="cc-body">
                 <div class="cc-title">Email</div>

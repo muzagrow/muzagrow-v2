@@ -19,21 +19,18 @@ import { SITE } from '@/lib/constants';
     </p>
 
     <div class="cc-stack">
-      <a
-        href={SITE.whatsapp}
-        class="cc primary"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="cc-icon">💬</div>
-        <div class="cc-body">
-          <div class="cc-title">WhatsApp directo</div>
-          <div class="cc-desc">Respuesta en menos de 2h en horario CDMX</div>
-        </div>
-        <div class="cc-arr">→</div>
-      </a>
+      {SITE.whatsapp && (
+        <a href={SITE.whatsapp} class="cc primary" target="_blank" rel="noopener noreferrer">
+          <div class="cc-icon">💬</div>
+          <div class="cc-body">
+            <div class="cc-title">WhatsApp directo</div>
+            <div class="cc-desc">Respuesta en menos de 2h en horario CDMX</div>
+          </div>
+          <div class="cc-arr">→</div>
+        </a>
+      )}
 
-      <a href="/contacto" class="cc">
+      <a href="/contacto" class="cc primary">
         <div class="cc-icon">📋</div>
         <div class="cc-body">
           <div class="cc-title">Cuéntame tu desafío</div>
