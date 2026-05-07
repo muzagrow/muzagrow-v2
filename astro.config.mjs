@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://muzagrow.com',
+  site: 'https://www.muzagrow.com',
   output: 'hybrid',
   integrations: [
     react(),

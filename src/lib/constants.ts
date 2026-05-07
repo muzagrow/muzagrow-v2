@@ -2,7 +2,7 @@ export const SITE = {
   name: 'MUZA GROW',
   tagline: 'Infraestructura de Crecimiento con IA & Automatización',
   description: 'Diseñamos infraestructura de crecimiento para corporativos en LATAM. Service Design + Automatización IA para que tu equipo haga lo que importa.',
-  url: import.meta.env.PUBLIC_SITE_URL || 'https://muzagrow.com',
+  url: import.meta.env.PUBLIC_SITE_URL || 'https://www.muzagrow.com',
   email: 'hola@muzagrow.com',
   location: 'Ciudad de México, LATAM',
   calendlyUrl: import.meta.env.PUBLIC_CALENDLY_URL || 'https://calendly.com/moises-muzagrow',
