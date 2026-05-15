@@ -1,60 +1,33 @@
 ---
 import { SITE } from '@/lib/constants';
-import Button from '@/components/ui/Button.astro';
 ---
 
 <section class="section who-section" id="quien" aria-labelledby="who-h">
+  <div class="s-tag">Quién diseña tu infraestructura</div>
+  <h2 class="s-headline" id="who-h">
+    No somos una agencia.<br><em>Somos <span class="accent-text">un arquitecto.</span></em>
+  </h2>
+
   <div class="who-grid">
 
-    <!-- Foto o placeholder -->
-    <div class="who-photo-wrap">
-      <div class="who-photo">
-        <!-- Si existe la foto, mostrarla; si no, el placeholder con la M -->
-        <div class="who-photo-placeholder" aria-hidden="true">M</div>
+    <!-- Tarjeta founder -->
+    <div class="who-card">
+      <div class="who-card-header">
+        <div class="who-avatar">M</div>
+        <div>
+          <div class="who-role">FOUNDER & SERVICE ARCHITECT</div>
+          <div class="who-tagline">MUZA GROW</div>
+        </div>
       </div>
-      <div class="who-photo-tag">FOUNDER & SERVICE ARCHITECT</div>
-    </div>
-
-    <!-- Info -->
-    <div class="who-info">
-      <div class="s-tag">Quién diseña tu infraestructura</div>
-      <h2 class="s-headline" id="who-h" style="margin-bottom:1.2rem;">
-        No somos una agencia.<br><em>Somos <span class="accent-text">un arquitecto.</span></em>
-      </h2>
-
       <p class="who-desc">
         No hay "sales guy" que te vende y después desaparece.
         El founder diseña la arquitectura de cada proyecto — personalmente.
+        MUZA es pequeño de forma intencional.
       </p>
-
-      <ul class="who-list">
-        <li>
-          <span class="who-icon">🎨</span>
-          <div>
-            <strong>Background: UX / Service Design</strong>
-            <p>No solo código. Cada automatización piensa en usuarios y procesos reales antes de construir.</p>
-          </div>
-        </li>
-        <li>
-          <span class="who-icon">🧠</span>
-          <div>
-            <strong>Filosofía: Sistemas antes que features</strong>
-            <p>Soluciones que escalan, no parches que colapsan cuando creces.</p>
-          </div>
-        </li>
-        <li>
-          <span class="who-icon">🔧</span>
-          <div>
-            <strong>Riesgo: MUZA es nuestra reputación</strong>
-            <p>No hay delegación. Cada diagnóstico y cada proyecto es responsabilidad directa.</p>
-          </div>
-        </li>
-      </ul>
-
-      <div class="who-ctas">
+      <div class="who-links">
         {SITE.linkedin && (
           <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" class="who-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
             LinkedIn →
@@ -65,117 +38,115 @@ import Button from '@/components/ui/Button.astro';
         </a>
       </div>
     </div>
+
+    <!-- 3 diferenciadores -->
+    <div class="who-items">
+      {[
+        {
+          icon: '🎨',
+          title: 'Background: UX / Service Design',
+          desc: 'No solo código. Cada automatización piensa en usuarios y procesos reales antes de construir.',
+        },
+        {
+          icon: '🧠',
+          title: 'Filosofía: Sistemas antes que features',
+          desc: 'Soluciones que escalan, no parches que colapsan cuando creces.',
+        },
+        {
+          icon: '🔧',
+          title: 'Riesgo: MUZA es nuestra reputación',
+          desc: 'No hay delegación. Cada diagnóstico y cada proyecto es responsabilidad directa.',
+        },
+      ].map(item => (
+        <div class="who-item">
+          <span class="who-item-icon">{item.icon}</span>
+          <div>
+            <strong class="who-item-title">{item.title}</strong>
+            <p class="who-item-desc">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
   </div>
 </section>
 
 <style>
-.who-section {
-  border-top: 1px solid var(--bdr);
-  padding-top: var(--py);
-}
+.who-section { border-top: 1px solid var(--bdr); }
 .accent-text { color: var(--accent); font-style: normal; }
 
 .who-grid {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 5rem;
-  align-items: center;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 3rem;
+  align-items: start;
 }
-@media (max-width: 860px) {
-  .who-grid { grid-template-columns: 1fr; gap: 3rem; }
-}
+@media (max-width: 860px) { .who-grid { grid-template-columns: 1fr; gap: 2rem; } }
 
-/* Foto */
-.who-photo-wrap { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
-.who-photo {
-  width: 100%;
-  aspect-ratio: 1;
-  max-width: 360px;
-  border-radius: 2rem;
-  overflow: hidden;
-  border: 1px solid var(--bdr);
+/* Tarjeta founder */
+.who-card {
   background: var(--s1);
-  position: relative;
-}
-.who-photo img { width: 100%; height: 100%; object-fit: cover; }
-.who-photo-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8rem;
-  font-weight: 800;
-  color: var(--accent);
-  opacity: .15;
-  font-family: var(--body);
-  background: linear-gradient(135deg, var(--s1), var(--s2));
-}
-.who-photo-tag {
-  font-family: var(--mono);
-  font-size: .55rem;
-  color: var(--accent);
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-/* Info */
-.who-desc {
-  font-family: var(--body);
-  font-size: 1.05rem;
-  color: var(--gr);
-  line-height: 1.75;
-  margin-bottom: 2rem;
-  max-width: 520px;
-}
-
-.who-list {
-  list-style: none;
+  border: 1px solid var(--bdr);
+  border-radius: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
-  margin-bottom: 2.5rem;
+  gap: 1.2rem;
 }
-.who-list li {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+.who-card-header { display: flex; align-items: center; gap: 1rem; }
+.who-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--body); font-size: 1.5rem; font-weight: 800;
+  color: #fff; flex-shrink: 0;
 }
-.who-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
-.who-list strong {
-  font-family: var(--body);
-  font-size: .97rem;
-  font-weight: 700;
-  color: var(--white);
-  display: block;
-  margin-bottom: .3rem;
+.who-role {
+  font-family: var(--mono); font-size: .5rem;
+  color: var(--accent); letter-spacing: .18em; text-transform: uppercase;
 }
-.who-list p {
-  font-family: var(--body);
-  font-size: .88rem;
-  color: var(--gr);
-  line-height: 1.65;
+.who-tagline {
+  font-family: var(--body); font-size: .9rem;
+  font-weight: 700; color: var(--white);
+}
+.who-desc {
+  font-family: var(--body); font-size: .9rem;
+  color: var(--gr); line-height: 1.7;
   overflow-wrap: break-word;
 }
-
-.who-ctas {
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--bdr);
+.who-links {
+  display: flex; flex-direction: column; gap: .6rem;
+  padding-top: 1rem; border-top: 1px solid var(--bdr);
 }
 .who-link {
-  font-family: var(--mono);
-  font-size: .6rem;
-  color: var(--accent);
-  letter-spacing: .1em;
-  text-decoration: none;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
+  font-family: var(--mono); font-size: .6rem;
+  color: var(--accent); letter-spacing: .08em;
+  text-decoration: none; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: .45rem;
   transition: color .2s, gap .2s;
 }
-.who-link:hover { color: var(--accent-light); gap: .8rem; }
+.who-link:hover { color: var(--accent-light); gap: .7rem; }
+
+/* Items */
+.who-items { display: flex; flex-direction: column; gap: 1.4rem; }
+.who-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.4rem; background: var(--s1);
+  border: 1px solid var(--bdr); border-radius: 1rem;
+  transition: border-color .3s;
+}
+.who-item:hover { border-color: rgba(255,107,53,.3); }
+.who-item-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: .1rem; }
+.who-item-title {
+  font-family: var(--body); font-size: .97rem;
+  font-weight: 700; color: var(--white);
+  display: block; margin-bottom: .4rem;
+  overflow-wrap: break-word;
+}
+.who-item-desc {
+  font-family: var(--body); font-size: .87rem;
+  color: var(--gr); line-height: 1.65;
+  overflow-wrap: break-word;
+}
 </style>
