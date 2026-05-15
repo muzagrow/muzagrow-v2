@@ -5,7 +5,10 @@ import Footer from '@/components/layout/Footer.astro';
 import Hero from '@/components/sections/Hero.astro';
 import ValueProp from '@/components/sections/ValueProp.astro';
 import Services from '@/components/sections/Services.astro';
+import WhyDesign from '@/components/sections/WhyDesign.astro';
 import Process from '@/components/sections/Process.astro';
+import CaseStudyInternal from '@/components/sections/CaseStudyInternal.astro';
+import WhoBuilds from '@/components/sections/WhoBuilds.astro';
 import CTA from '@/components/sections/CTA.astro';
 ---
 
@@ -18,6 +21,7 @@ import CTA from '@/components/sections/CTA.astro';
     <Hero />
     <ValueProp />
     <Services />
+    <WhyDesign />
 
     <!-- Manifesto section -->
     <section
@@ -49,6 +53,7 @@ import CTA from '@/components/sections/CTA.astro';
     </section>
 
     <Process />
+    <CaseStudyInternal />
 
     <!-- FAQ section -->
     <section class="section" id="faq" aria-labelledby="faq-h">
@@ -72,28 +77,28 @@ import CTA from '@/components/sections/CTA.astro';
         <div class="faq-list">
           {[
             {
+              q: '¿Qué diferencia a MUZA de otras agencias de automatización?',
+              a: 'Service Design + IA juntos. Otros hacen "automatización" (workflows). Nosotros diseñamos infraestructura. Antes de escribir una línea de código, mapeamos tu proceso completo. Por eso las soluciones escalan cuando creces.',
+            },
+            {
+              q: '¿El founder lidera mi proyecto o atiende un junior?',
+              a: 'El founder lidera CADA diagnóstico y CADA proyecto. No es marketing — es realidad. MUZA es pequeño y eso es intencional. Cuando prometemos algo, respondemos directamente.',
+            },
+            {
               q: '¿Cuánto cuesta?',
-              a: 'Cada proyecto es diferente. Ofrecemos un diagnóstico gratuito donde definimos el alcance y costo exacto antes de cualquier compromiso. Sin sorpresas.',
+              a: 'Cada proyecto es diferente. Discovery: ~$1,500-$3,000. Build: $8,000-$35,000 dependiendo de complejidad. El diagnóstico es gratuito y define el costo exacto antes de cualquier compromiso. Puedes ver rangos indicativos en /inversion.',
+            },
+            {
+              q: '¿Qué pasa si hago Discovery pero decido no hacer Build?',
+              a: 'Absolutamente nada. El Discovery ya tiene valor por sí mismo — obtienes el strategy document y roadmap, que puedes ejecutar tú mismo si quieres. La mayoría nos contrata para el Build después porque entienden la arquitectura.',
             },
             {
               q: '¿Cuánto tiempo tarda en activarse?',
-              a: 'Depende del alcance. Algunos sistemas se activan en días, proyectos más complejos pueden tomar 4-8 semanas. Lo definimos juntos en el diagnóstico.',
-            },
-            {
-              q: '¿Necesito un equipo técnico propio?',
-              a: 'No. Diseñamos, construimos y documentamos toda la infraestructura. Solo necesitas saber qué resultados quieres — nosotros construimos el camino.',
-            },
-            {
-              q: '¿Qué herramientas usan?',
-              a: 'Trabajamos con n8n, OpenAI, Claude, Make y Google Workspace, entre otras. Seleccionamos las mejores herramientas según el problema específico de cada empresa.',
+              a: 'Discovery: 3-5 días. Build: 2-8 semanas dependiendo del alcance. Lo definimos juntos antes de empezar — sin sorpresas de tiempo ni de costo.',
             },
             {
               q: '¿Qué pasa si algo falla después de lanzar?',
               a: 'Todos los proyectos incluyen soporte post-deploy. Somos tu equipo de infraestructura — no un proveedor que desaparece después de entregar.',
-            },
-            {
-              q: '¿Cómo es el proceso de trabajo con Moises?',
-              a: 'Empezamos con una conversación directa (sin formularios). Entendemos el problema, diseñamos la solución, la construimos y la optimizamos juntos. Tú decides el ritmo.',
             },
           ].map((item, i) => (
             <div class="faq-item">
@@ -110,6 +115,7 @@ import CTA from '@/components/sections/CTA.astro';
       </div>
     </section>
 
+    <WhoBuilds />
     <CTA />
   </main>
   <Footer />

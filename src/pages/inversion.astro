@@ -1,0 +1,366 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Button from '@/components/ui/Button.astro';
+---
+
+<BaseLayout
+  title="Inversión Indicativa | MUZA GROW"
+  description="Rangos de precio por servicio. Discovery desde $1,500 USD. Build desde $8,000 USD. El diagnóstico gratuito define tu costo exacto."
+>
+  <Header />
+  <main style="padding-top:5rem;">
+
+    <!-- Hero -->
+    <section class="section" style="padding-top:4rem;padding-bottom:2rem;">
+      <div class="s-tag">Transparencia</div>
+      <h1 class="s-headline">
+        Inversión<br><em class="accent-em">Indicativa.</em>
+      </h1>
+      <p class="inv-intro">
+        Estas referencias están basadas en proyectos típicos.
+        El diagnóstico gratuito define el costo exacto para tu situación específica —
+        sin sorpresas ni letra chica.
+      </p>
+    </section>
+
+    <!-- Pricing cards -->
+    <section class="section" style="padding-top:0;">
+      <div class="inv-grid">
+
+        <!-- Discovery -->
+        <article class="inv-card" aria-labelledby="inv-01">
+          <div class="inv-num">/ 01</div>
+          <h2 class="inv-title" id="inv-01">Growth Architecture<br><em>Discovery</em></h2>
+
+          <div class="inv-price-wrap">
+            <div class="inv-price">$1,500</div>
+            <div class="inv-price-range">hasta $3,000 USD</div>
+          </div>
+
+          <div class="inv-duration">
+            <span class="inv-duration-label">Duración</span>
+            <span class="inv-duration-val">3 a 5 días</span>
+          </div>
+
+          <div class="inv-divider"></div>
+
+          <ul class="inv-includes">
+            <li>Auditoría de procesos completa</li>
+            <li>Strategy document</li>
+            <li>Roadmap + arquitectura propuesta</li>
+            <li>Presupuesto exacto para Build</li>
+          </ul>
+
+          <div class="inv-for">
+            <span class="inv-for-label">Para:</span>
+            Empresas que no saben por dónde empezar
+          </div>
+
+          <Button href="/contacto" size="md">Agendar diagnóstico</Button>
+        </article>
+
+        <!-- Build — destacado -->
+        <article class="inv-card inv-card--featured" aria-labelledby="inv-02">
+          <div class="inv-popular">MÁS SOLICITADO</div>
+          <div class="inv-num">/ 02</div>
+          <h2 class="inv-title" id="inv-02">Automation Design<br><em>& Build</em></h2>
+
+          <div class="inv-price-wrap">
+            <div class="inv-price">$8,000</div>
+            <div class="inv-price-range">hasta $35,000 USD</div>
+          </div>
+
+          <div class="inv-duration">
+            <span class="inv-duration-label">Duración</span>
+            <span class="inv-duration-val">2 a 8 semanas</span>
+          </div>
+
+          <div class="inv-divider"></div>
+
+          <ul class="inv-includes">
+            <li>Diseño de workflows completo</li>
+            <li>Construcción con n8n + IA agents</li>
+            <li>Testing riguroso</li>
+            <li>Deploy + documentación</li>
+            <li>Training del equipo</li>
+          </ul>
+
+          <div class="inv-for">
+            <span class="inv-for-label">Para:</span>
+            Empresas que ya saben qué necesitan construir
+          </div>
+
+          <Button href="/contacto" size="md">Agendar diagnóstico</Button>
+        </article>
+
+        <!-- Optimization -->
+        <article class="inv-card" aria-labelledby="inv-03">
+          <div class="inv-num">/ 03</div>
+          <h2 class="inv-title" id="inv-03">Ongoing<br><em>Optimization</em></h2>
+
+          <div class="inv-price-wrap">
+            <div class="inv-price">$2,000</div>
+            <div class="inv-price-range">hasta $6,000 USD/mes</div>
+          </div>
+
+          <div class="inv-duration">
+            <span class="inv-duration-label">Duración</span>
+            <span class="inv-duration-val">Mes a mes (flexible)</span>
+          </div>
+
+          <div class="inv-divider"></div>
+
+          <ul class="inv-includes">
+            <li>Monitoreo continuo del sistema</li>
+            <li>Iteración por métricas reales</li>
+            <li>Mejoras y ajustes</li>
+            <li>ROI tracking mensual</li>
+          </ul>
+
+          <div class="inv-for">
+            <span class="inv-for-label">Para:</span>
+            Empresas que lanzaron y quieren exprimir ROI
+          </div>
+
+          <Button href="/contacto" size="md">Agendar diagnóstico</Button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Nota importante -->
+    <section class="section" style="padding-top:0;">
+      <div class="inv-note">
+        <h3 class="inv-note-title">⚠️ Nota importante</h3>
+        <ul class="inv-note-list">
+          <li>Proyectos simples pueden costar <strong>menos</strong> que el rango indicativo</li>
+          <li>Proyectos con 5+ integraciones complejas pueden ser <strong>más</strong></li>
+          <li>El diagnóstico es <strong>gratis</strong> — defines el número exacto + breakdown antes de comprometerte</li>
+          <li>No hay sorpresas: todo el scope está definido antes de empezar</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ de inversión -->
+    <section class="section" style="padding-top:0;">
+      <h2 class="s-headline" style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:2rem;">
+        Preguntas sobre<br><em>la inversión.</em>
+      </h2>
+
+      <div style="display:flex;flex-direction:column;max-width:720px;">
+        {[
+          {
+            q: '¿Por qué hay un rango tan amplio en Build?',
+            a: 'Porque depende del número de integraciones, complejidad de los flujos, y si hay IA agents involucrados. Un flujo simple de 3 sistemas es muy diferente a una infraestructura con 8 integraciones y agentes autónomos. El Discovery define exactamente dónde cae tu proyecto.',
+          },
+          {
+            q: '¿Puedo hacer solo Discovery sin compromiso de Build?',
+            a: 'Sí, absolutamente. El Discovery es un servicio independiente con valor propio. Obtienes el strategy document y roadmap completo. Lo que hagas después es tu decisión.',
+          },
+          {
+            q: '¿Cuándo se paga?',
+            a: 'Discovery: 100% al inicio. Build: 50% al inicio, 50% al deploy. Optimization: mensual. Sin pagos ocultos ni sorpresas.',
+          },
+          {
+            q: '¿Aceptan proyectos fuera de México?',
+            a: 'Sí. Trabajamos con empresas en LATAM. La mayoría de proyectos es 100% remoto. Los precios están en USD.',
+          },
+        ].map((item, i) => (
+          <div class="faq-item">
+            <button class="faq-btn" aria-expanded="false" aria-controls={`inv-faq-${i}`}>
+              <span>{item.q}</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body" id={`inv-faq-${i}`}>
+              <p>{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="text-align:center;padding:4rem var(--px) 6rem;position:relative;z-index:2;">
+      <h2 style="font-family:var(--body);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:1.2rem;">
+        El diagnóstico define tu número exacto
+      </h2>
+      <p style="font-family:var(--body);font-size:1rem;color:var(--gr);max-width:480px;margin:0 auto 2rem;line-height:1.7;">
+        Gratis. Sin compromiso. Una conversación honesta sobre tu problema y cuánto costaría resolverlo.
+      </p>
+      <Button href="/contacto" size="lg">Agendar diagnóstico gratuito →</Button>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+.accent-em { color: var(--accent); font-style: italic; }
+
+.inv-intro {
+  font-family: var(--body);
+  font-size: 1.05rem;
+  color: var(--gr);
+  line-height: 1.75;
+  max-width: 600px;
+}
+
+/* Grid */
+.inv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .inv-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1200px) and (min-width: 901px) { .inv-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Card */
+.inv-card {
+  background: var(--s1);
+  border: 1px solid var(--bdr);
+  border-radius: 1.5rem;
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+  transition: border-color .3s;
+}
+.inv-card:hover { border-color: var(--bdr-g); }
+
+.inv-card--featured {
+  border-color: var(--accent);
+  background: rgba(255,107,53,.04);
+}
+.inv-card--featured:hover { border-color: var(--accent-light); }
+
+.inv-popular {
+  position: absolute;
+  top: -1px;
+  left: 2rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: .5rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  padding: .3rem .8rem;
+  border-radius: 0 0 .5rem .5rem;
+}
+
+.inv-num { font-family: var(--mono); font-size: .55rem; color: var(--gr-d); letter-spacing: .15em; }
+
+.inv-title {
+  font-family: var(--body);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--white);
+  overflow-wrap: break-word;
+}
+.inv-title em { font-family: var(--ser); color: var(--accent); font-style: italic; font-weight: 400; font-size: .92em; }
+
+.inv-price-wrap { display: flex; flex-direction: column; gap: .2rem; }
+.inv-price {
+  font-family: var(--mono);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.inv-price-range { font-family: var(--mono); font-size: .6rem; color: var(--gr-d); }
+
+.inv-duration { display: flex; flex-direction: column; gap: .2rem; }
+.inv-duration-label { font-family: var(--mono); font-size: .48rem; color: var(--gr-d); letter-spacing: .2em; text-transform: uppercase; }
+.inv-duration-val { font-family: var(--body); font-size: .9rem; color: var(--white); font-weight: 600; }
+
+.inv-divider { height: 1px; background: var(--bdr); }
+
+.inv-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  flex: 1;
+}
+.inv-includes li {
+  font-family: var(--body);
+  font-size: .88rem;
+  color: var(--gr);
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  overflow-wrap: break-word;
+}
+.inv-includes li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.inv-for {
+  font-family: var(--body);
+  font-size: .82rem;
+  color: var(--gr);
+  padding: .75rem;
+  background: var(--s2);
+  border-radius: .75rem;
+  overflow-wrap: break-word;
+}
+.inv-for-label { font-weight: 700; color: var(--white); margin-right: .4rem; }
+
+/* Nota */
+.inv-note {
+  background: var(--s1);
+  border: 1px solid var(--bdr);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 1rem 1rem 0;
+  padding: 2rem 2.5rem;
+}
+.inv-note-title {
+  font-family: var(--body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: var(--white);
+}
+.inv-note-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+.inv-note-list li {
+  font-family: var(--body);
+  font-size: .9rem;
+  color: var(--gr);
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  overflow-wrap: break-word;
+}
+.inv-note-list li::before { content: '•'; color: var(--accent); flex-shrink: 0; }
+.inv-note-list strong { color: var(--white); }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-btn').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const bd = document.getElementById(b.getAttribute('aria-controls')!);
+        if (bd) bd.classList.remove('open');
+      });
+      if (!open) {
+        const ans = document.getElementById(btn.getAttribute('aria-controls')!);
+        btn.setAttribute('aria-expanded', 'true');
+        if (ans) ans.classList.add('open');
+      }
+    });
+  });
+</script>

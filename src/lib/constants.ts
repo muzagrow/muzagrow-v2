@@ -11,8 +11,8 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
-  { label: 'Proceso', href: '/#proceso' },
   { label: 'Servicios', href: '/servicios' },
+  { label: 'Inversión', href: '/inversion' },
   { label: 'Blog', href: '/blog' },
   { label: 'Nosotros', href: '/nosotros' },
 ];
@@ -25,6 +25,7 @@ export const SERVICES = [
     description: 'Hablamos directo. Entendemos tu operación. Identificamos dónde se pierde tiempo, dinero y eficiencia. Resultado: strategy document + roadmap listo para build.',
     deliverable: 'Strategy document + execution roadmap',
     forWho: 'Empresas que no saben por dónde empezar',
+    idealIf: 'Operaciones caóticas, múltiples sistemas desconectados, o sin claridad en procesos',
     tags: ['Diagnóstico', 'Roadmap', 'Estrategia'],
   },
   {
@@ -34,6 +35,7 @@ export const SERVICES = [
     description: 'Diseñamos los workflows que resuelven tu problema. Construimos con n8n, IA agents, integraciones. Desplegamos y testamos. Resultado: sistema automático funcionando.',
     deliverable: 'Working automated system',
     forWho: 'Empresas que ya saben qué quieren',
+    idealIf: 'Ya hiciste Discovery, o ya sabes exactamente qué necesitas construir',
     tags: ['n8n', 'Agentes IA', 'Integraciones'],
   },
   {
@@ -43,6 +45,7 @@ export const SERVICES = [
     description: 'Lanzar no es el final. Monitoreamos, iteramos, mejoramos basado en resultados reales. Ajustamos conforme tu negocio crece. Resultado: métricas de ROI comprobadas.',
     deliverable: 'Continuous improvement + metrics',
     forWho: 'Empresas que lanzaron y quieren mejorar',
+    idealIf: 'Lanzaste un sistema y quieres exprimir el máximo ROI con optimización continua',
     tags: ['Monitoreo', 'Métricas', 'ROI'],
   },
 ];

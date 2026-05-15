@@ -58,12 +58,12 @@ const Tag = href ? 'a' : 'button';
 .btn-size-lg { font-size: .72rem; padding: .7rem 1.8rem; }
 
 /* Variants */
-.btn-primary { color: #051114; background: var(--white); border-color: transparent; }
-.btn-primary:hover:not(:disabled) { box-shadow: 0 0 22px rgba(0,168,143,0.4); transform: translateY(-2px); }
+.btn-primary { color: #fff; background: var(--accent); border-color: transparent; }
+.btn-primary:hover:not(:disabled) { background: var(--accent-dark); box-shadow: 0 0 24px rgba(255,107,53,.35); transform: translateY(-2px); }
 
-.btn-outline { color: var(--white); background: var(--s2); border-color: var(--bdr); }
-.btn-outline:hover:not(:disabled) { background: rgba(255,255,255,.08); border-color: var(--bdr-g); }
+.btn-outline { color: var(--accent); background: transparent; border-color: var(--accent); }
+.btn-outline:hover:not(:disabled) { background: var(--accent); color: #fff; }
 
-.btn-ghost { color: var(--gold); background: transparent; border-color: transparent; }
-.btn-ghost:hover:not(:disabled) { color: var(--white); gap: .8rem; }
+.btn-ghost { color: var(--accent); background: transparent; border-color: transparent; }
+.btn-ghost:hover:not(:disabled) { color: var(--accent-light); gap: .8rem; }
 </style>

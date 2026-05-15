@@ -1,0 +1,165 @@
+---
+---
+
+<section class="section case-section" aria-labelledby="case-h">
+  <div class="case-header">
+    <div class="s-tag">Caso interno</div>
+    <h2 class="s-headline" id="case-h">
+      MUZA GROW — Automatizamos<br><em>nuestro propio proceso primero.</em>
+    </h2>
+  </div>
+
+  <div class="case-grid">
+
+    <div class="case-col">
+      <div class="case-block">
+        <h3 class="case-block-title">🔍 Situación</h3>
+        <p class="case-block-desc">
+          Agencia joven que necesitaba calificar leads rápido. El diagnóstico inicial
+          era una conversación larga — algunos leads se perdían porque el proceso no escalaba.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <h3 class="case-block-title">⚙️ Solución</h3>
+        <p class="case-block-desc">
+          Flujo automático de pre-calificación con Claude AI integrado a n8n.
+          Notion como CRM + email automatizado para coordinar primeras conversaciones.
+        </p>
+      </div>
+
+      <div class="case-block">
+        <h3 class="case-block-title">📊 Resultados</h3>
+        <ul class="case-results">
+          <li>✓ Lead qualification automático 24/7</li>
+          <li>✓ Tiempo de presales: 60 min → 15 min</li>
+          <li>✓ Más leads que antes no entraban al proceso</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case-stack-wrap">
+      <div class="case-stack">
+        <div class="case-stack-label">Stack utilizado</div>
+        <div class="case-stack-grid">
+          {[
+            { tool: 'n8n', role: 'Orquestación' },
+            { tool: 'Claude AI', role: 'Pre-qualification' },
+            { tool: 'Notion', role: 'CRM interno' },
+            { tool: 'Resend', role: 'Email automático' },
+          ].map(item => (
+            <div class="case-tool">
+              <span class="case-tool-name">{item.tool}</span>
+              <span class="case-tool-role">{item.role}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="case-quote">
+        Esto es exactamente lo que hacemos para nuestros clientes —
+        pero primero lo probamos en nosotros mismos.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.case-section {
+  border-top: 1px solid var(--bdr);
+  padding-bottom: 0;
+}
+
+.case-header { margin-bottom: 3rem; }
+
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } }
+
+.case-col { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.case-block {
+  background: var(--s1);
+  border: 1px solid var(--bdr);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+}
+.case-block-title {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: .75rem;
+}
+.case-block-desc {
+  font-family: var(--body);
+  font-size: .88rem;
+  color: var(--gr);
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+.case-results {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.case-results li {
+  font-family: var(--body);
+  font-size: .88rem;
+  color: var(--white);
+}
+
+.case-stack-wrap { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.case-stack {
+  background: var(--s2);
+  border: 1px solid var(--bdr);
+  border-radius: 1.2rem;
+  padding: 1.8rem;
+}
+.case-stack-label {
+  font-family: var(--mono);
+  font-size: .55rem;
+  color: var(--accent);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.case-stack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.case-tool { display: flex; flex-direction: column; gap: .2rem; }
+.case-tool-name {
+  font-family: var(--body);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.case-tool-role {
+  font-family: var(--mono);
+  font-size: .52rem;
+  color: var(--gr-d);
+  letter-spacing: .1em;
+}
+
+.case-quote {
+  background: rgba(255,107,53,.05);
+  border: 1px solid rgba(255,107,53,.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  font-family: var(--body);
+  font-size: .9rem;
+  color: var(--gr);
+  line-height: 1.7;
+  font-style: italic;
+}
+</style>

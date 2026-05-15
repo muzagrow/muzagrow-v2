@@ -27,6 +27,10 @@ import Badge from '@/components/ui/Badge.astro';
             <span class="svc-meta-label">PARA</span>
             <span class="svc-meta-val">{svc.forWho}</span>
           </div>
+          <div class="svc-ideal">
+            <span class="svc-ideal-label">Ideal si:</span>
+            <span class="svc-ideal-val">{svc.idealIf}</span>
+          </div>
         </div>
 
         <div class="svc-tags">
@@ -68,6 +72,18 @@ import Badge from '@/components/ui/Badge.astro';
 .svc-meta-row { display: flex; flex-direction: column; gap: .15rem; }
 .svc-meta-label { font-family: var(--mono); font-size: .48rem; color: var(--gr-d); letter-spacing: .2em; text-transform: uppercase; }
 .svc-meta-val { font-family: var(--body); font-size: .82rem; color: var(--white); }
+.svc-ideal {
+  background: rgba(255,107,53,.06);
+  border: 1px solid rgba(255,107,53,.2);
+  border-radius: .75rem;
+  padding: .6rem .85rem;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  margin-top: .3rem;
+}
+.svc-ideal-label { font-family: var(--mono); font-size: .48rem; color: var(--accent); letter-spacing: .18em; text-transform: uppercase; }
+.svc-ideal-val { font-family: var(--body); font-size: .8rem; color: var(--gr); line-height: 1.5; overflow-wrap: break-word; }
 
 .svc-tags { display: flex; flex-wrap: wrap; gap: .38rem; }
 .svc-link {

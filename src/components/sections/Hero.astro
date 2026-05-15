@@ -21,13 +21,15 @@ import Button from '@/components/ui/Button.astro';
 
     <!-- Headlines -->
     <h1 class="hero-h1">
-      <span class="hero-h1-white">RESOLVEMOS TUS</span>
-      <span class="hero-h1-holo holo-text">PROBLEMAS OPERACIONALES.</span>
+      <span class="hero-h1-white">NO VENDEMOS HERRAMIENTAS.</span>
+      <span class="hero-h1-accent">DISEÑAMOS LA INFRAESTRUCTURA</span>
+      <span class="hero-h1-white">QUE DEBERÍA HABER SIDO DESDE EL INICIO.</span>
     </h1>
 
     <p class="hero-sub">
-      No vendemos herramientas. Diseñamos infraestructura para que tu equipo
-      haga lo que importa. El resto? Automático.
+      Automatizamos lo que consume 40% de tu nómina.
+      Tu equipo se enfoca en lo que realmente importa.
+      El resto? Corre automático. 24/7.
     </p>
 
     <!-- CTAs -->
@@ -153,13 +155,16 @@ import Button from '@/components/ui/Button.astro';
   margin-bottom: 1.5rem;
 }
 .hero-h1-white {
-  font-size: clamp(2.8rem, 6vw, 6.5rem);
+  font-size: clamp(2rem, 4.5vw, 5rem);
   color: var(--white);
   display: block;
+  line-height: 1.05;
 }
-.hero-h1-holo {
-  font-size: clamp(2.8rem, 6vw, 6.5rem);
+.hero-h1-accent {
+  font-size: clamp(2rem, 4.5vw, 5rem);
+  color: var(--accent);
   display: block;
+  line-height: 1.05;
 }
 
 .hero-sub {
