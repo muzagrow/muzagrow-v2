@@ -1,0 +1,55 @@
+---
+---
+
+<section class="sp-section" aria-label="Cifras de MUZA GROW">
+  <div class="section sp-inner">
+    <div class="sp-grid">
+      {[
+        { num: '8+',    label: 'Empresas confían en MUZA' },
+        { num: '$2.5M+', label: 'Ahorrados para clientes' },
+        { num: '200h+', label: 'Recuperadas en tiempo manual' },
+        { num: '10+',   label: 'Años en service design' },
+      ].map(item => (
+        <div class="sp-item">
+          <span class="sp-num">{item.num}</span>
+          <span class="sp-label">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.sp-section {
+  background: rgba(255,107,53,.04);
+  border-top: 1px solid rgba(255,107,53,.15);
+  border-bottom: 1px solid rgba(255,107,53,.15);
+  position: relative;
+  z-index: 2;
+}
+.sp-inner { padding-top: 3rem; padding-bottom: 3rem; }
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .sp-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+}
+.sp-item { display: flex; flex-direction: column; gap: .4rem; }
+.sp-num {
+  font-family: var(--mono);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.sp-label {
+  font-family: var(--body);
+  font-size: .85rem;
+  color: var(--gr);
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+</style>

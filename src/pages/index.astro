@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer.astro';
 import Hero from '@/components/sections/Hero.astro';
 import ValueProp from '@/components/sections/ValueProp.astro';
 import Services from '@/components/sections/Services.astro';
+import SocialProof from '@/components/sections/SocialProof.astro';
 import WhyDesign from '@/components/sections/WhyDesign.astro';
 import Process from '@/components/sections/Process.astro';
 import CaseStudyInternal from '@/components/sections/CaseStudyInternal.astro';
@@ -19,6 +20,7 @@ import CTA from '@/components/sections/CTA.astro';
   <Header />
   <main>
     <Hero />
+    <SocialProof />
     <ValueProp />
     <Services />
     <WhyDesign />
@@ -78,27 +80,31 @@ import CTA from '@/components/sections/CTA.astro';
           {[
             {
               q: '¿Qué diferencia a MUZA de otras agencias de automatización?',
-              a: 'Service Design + IA juntos. Otros hacen "automatización" (workflows). Nosotros diseñamos infraestructura. Antes de escribir una línea de código, mapeamos tu proceso completo. Por eso las soluciones escalan cuando creces.',
+              a: 'Otros hacen "automatización" (conectan herramientas). Nosotros diseñamos infraestructura completa. Antes de escribir código, mapeamos tu proceso entero. Por eso las soluciones escalan cuando creces 3x. El diferenciador no son las herramientas — es el proceso.',
             },
             {
-              q: '¿El founder lidera mi proyecto o atiende un junior?',
-              a: 'El founder lidera CADA diagnóstico y CADA proyecto. No es marketing — es realidad. MUZA es pequeño y eso es intencional. Cuando prometemos algo, respondemos directamente.',
+              q: '¿Cuánto tiempo tarda de principio a fin?',
+              a: 'Discovery: 3-5 días. Diseño: 1-2 semanas. Build: 2-8 semanas (depende de complejidad). Optimization: ongoing. Timeline total: 5-15 semanas si haces todo el proceso.',
             },
             {
-              q: '¿Cuánto cuesta?',
-              a: 'Cada proyecto es diferente. Discovery: ~$1,500-$3,000. Build: $8,000-$35,000 dependiendo de complejidad. El diagnóstico es gratuito y define el costo exacto antes de cualquier compromiso. Puedes ver rangos indicativos en /inversion.',
+              q: '¿Qué pasa si hacemos Discovery pero decidimos no continuar con Build?',
+              a: 'El Discovery ya tiene valor por sí mismo. Obtienes el strategy document y roadmap ejecutable. Lo puedes ejecutar tú mismo si prefieres. La mayoría nos contrata para el Build después porque entienden la arquitectura y validaron que somos fit.',
             },
             {
-              q: '¿Qué pasa si hago Discovery pero decido no hacer Build?',
-              a: 'Absolutamente nada. El Discovery ya tiene valor por sí mismo — obtienes el strategy document y roadmap, que puedes ejecutar tú mismo si quieres. La mayoría nos contrata para el Build después porque entienden la arquitectura.',
+              q: '¿Cómo es el soporte después de que lancemos?',
+              a: 'No es "entrega y desaparece". Todos los proyectos incluyen monitoreo de performance, iteración por métricas, soporte técnico post-deploy y mejoras conforme tu negocio crece. Eres nuestro cliente de largo plazo.',
             },
             {
-              q: '¿Cuánto tiempo tarda en activarse?',
-              a: 'Discovery: 3-5 días. Build: 2-8 semanas dependiendo del alcance. Lo definimos juntos antes de empezar — sin sorpresas de tiempo ni de costo.',
+              q: '¿Por qué algunas agencias son más baratas?',
+              a: 'Nos enfocamos en calidad y accountability. Equipo pequeño, cada proyecto es responsabilidad personal. Rechazamos proyectos que no podemos hacer bien. Agencias grandes aceptan más proyectos con menos atención. Precios bajos = juniors, menos accountability. Elige qué importa: precio bajo o resultados probados.',
             },
             {
-              q: '¿Qué pasa si algo falla después de lanzar?',
-              a: 'Todos los proyectos incluyen soporte post-deploy. Somos tu equipo de infraestructura — no un proveedor que desaparece después de entregar.',
+              q: '¿Qué tecnologías usan?',
+              a: 'n8n (orquestación de workflows), Claude + OpenAI (IA para reasoning complejo), Notion o Google Workspace (data management), WhatsApp + Slack (comunicación), Vercel (hosting). Cada proyecto define el stack exacto — no hay stack fijo.',
+            },
+            {
+              q: '¿Puedo ver casos de estudio?',
+              a: 'Después de confirmar el diagnóstico, compartimos 1-2 casos reales con permiso del cliente. Incluyen nombres, resultados exactos y la arquitectura que usamos. No los publicamos abiertamente para proteger la privacidad de los clientes.',
             },
           ].map((item, i) => (
             <div class="faq-item">
