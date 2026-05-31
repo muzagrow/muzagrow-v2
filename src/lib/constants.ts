@@ -15,6 +15,7 @@ export const NAV_LINKS = [
   { label: 'Inversión', href: '/inversion' },
   { label: 'Blog', href: '/blog' },
   { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Auditoría Gratis', href: '/auditoria' },
 ];
 
 export const SERVICES = [

@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { SITE } from '@/lib/constants';
+---
+
+<BaseLayout
+  title="Gracias — MUZA GROW"
+  description="Recibimos tu mensaje. Te contactamos en menos de 24 horas."
+>
+  <Header ctaLabel="Inicio" ctaHref="/" />
+  <main style="padding-top:5rem;min-height:80vh;display:flex;align-items:center;">
+
+    <section class="section ty-section">
+
+      <div class="ty-badge">✓ Mensaje recibido</div>
+
+      <h1 class="ty-h1">
+        Gracias.<br>
+        <em>Nos ponemos en contacto.</em>
+      </h1>
+
+      <p class="ty-sub">
+        Revisamos cada mensaje personalmente. Recibirás respuesta en menos de 24 horas en días hábiles — normalmente antes.
+      </p>
+
+      <!-- Próximos pasos -->
+      <div class="ty-steps">
+        <div class="ty-steps-label">// Qué pasa ahora</div>
+        <div class="ty-steps-grid">
+          {[
+            { num: '01', title: 'Revisamos tu mensaje', desc: 'Leemos el contexto de tu operación y nos preparamos para la conversación.' },
+            { num: '02', title: 'Te contactamos en 24h', desc: 'Confirmamos la auditoría y agendamos el horario que mejor te funcione.' },
+            { num: '03', title: 'Conversación de 30 min', desc: 'Analizamos tu operación, identificamos oportunidades y estimamos el impacto.' },
+            { num: '04', title: 'Propuesta clara', desc: 'Si tiene sentido, recibes una propuesta con scope, timeline y precio. Sin sorpresas.' },
+          ].map(step => (
+            <div class="ty-step">
+              <div class="ty-step-num">{step.num}</div>
+              <strong class="ty-step-title">{step.title}</strong>
+              <p class="ty-step-desc">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="ty-ctas">
+        <a href="/" class="ty-btn-primary">Volver al inicio</a>
+        <a href="/blog" class="ty-btn-outline">Leer el blog →</a>
+      </div>
+
+      <!-- Mientras esperas -->
+      <div class="ty-resources">
+        <div class="ty-res-label">Mientras esperas, estos artículos pueden interesarte:</div>
+        <div class="ty-res-links">
+          {[
+            { label: 'Por qué tu operación no escala con el negocio', href: '/blog/crecimiento-sin-escalabilidad' },
+            { label: 'El costo real de los procesos manuales', href: '/blog/costo-procesos-manuales' },
+            { label: 'Contratar vs. automatizar: la decisión clave', href: '/blog/contratar-vs-escalar' },
+          ].map(r => (
+            <a href={r.href} class="ty-res-link">{r.label} →</a>
+          ))}
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+.ty-section { max-width: 760px; padding-top: 3rem; padding-bottom: 6rem; }
+
+.ty-badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--mono); font-size: .65rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--teal);
+  background: rgba(0,168,143,.1); border: 1px solid rgba(0,168,143,.25);
+  padding: .45rem 1.1rem; border-radius: 2rem; margin-bottom: 1.8rem;
+}
+
+.ty-h1 {
+  font-family: var(--body); font-weight: 800;
+  font-size: clamp(2.4rem,6vw,5rem); letter-spacing: -.03em;
+  line-height: 1.05; margin-bottom: 1.2rem;
+}
+.ty-h1 em { font-family: var(--ser); font-weight: 400; font-style: italic; color: var(--gr); }
+
+.ty-sub {
+  font-family: var(--body); font-size: clamp(.95rem,2vw,1.1rem);
+  color: var(--gr); line-height: 1.75; max-width: 540px; margin-bottom: 3rem;
+}
+
+/* Steps */
+.ty-steps { margin-bottom: 3rem; }
+.ty-steps-label {
+  font-family: var(--mono); font-size: .55rem;
+  letter-spacing: .18em; color: var(--gr); text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.ty-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.ty-step {
+  background: var(--s1); border: 1px solid var(--bdr);
+  border-radius: 1rem; padding: 1.4rem;
+}
+.ty-step-num {
+  font-family: var(--mono); font-size: .6rem; color: var(--accent);
+  letter-spacing: .12em; margin-bottom: .75rem;
+}
+.ty-step-title {
+  font-family: var(--body); font-size: .9rem;
+  font-weight: 700; color: var(--white); display: block; margin-bottom: .4rem;
+}
+.ty-step-desc { font-family: var(--body); font-size: .82rem; color: var(--gr); line-height: 1.6; }
+
+/* CTAs */
+.ty-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.ty-btn-primary {
+  font-family: var(--mono); font-size: .65rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  color: #000; background: var(--white);
+  padding: .75rem 1.8rem; border-radius: 2rem;
+  transition: box-shadow .2s;
+}
+.ty-btn-primary:hover { box-shadow: 0 0 0 3px rgba(255,255,255,.2); }
+.ty-btn-outline {
+  font-family: var(--mono); font-size: .65rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  color: var(--accent); border: 1px solid var(--accent);
+  padding: .75rem 1.8rem; border-radius: 2rem;
+  transition: background .2s, color .2s;
+}
+.ty-btn-outline:hover { background: var(--accent); color: #fff; }
+
+/* Resources */
+.ty-resources {
+  background: var(--s1); border: 1px solid var(--bdr);
+  border-radius: 1.2rem; padding: 1.5rem;
+}
+.ty-res-label {
+  font-family: var(--mono); font-size: .55rem;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--gr); margin-bottom: 1rem;
+}
+.ty-res-links { display: flex; flex-direction: column; gap: .65rem; }
+.ty-res-link {
+  font-family: var(--body); font-size: .88rem;
+  color: var(--gr); text-decoration: none;
+  transition: color .2s; line-height: 1.4;
+}
+.ty-res-link:hover { color: var(--white); }
+</style>

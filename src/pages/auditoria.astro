@@ -1,0 +1,237 @@
+---
+import BaseLayout from '@/components/layout/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import ContactForm from '@/components/forms/ContactForm';
+import { SITE } from '@/lib/constants';
+---
+
+<BaseLayout
+  title="Auditoría Gratuita (30 min) | MUZA GROW"
+  description="Conversación directa de 30 minutos. Identificamos exactamente dónde se pierde tiempo y dinero en tu operación. Sin costo, sin compromiso."
+>
+  <Header ctaLabel="Inicio" ctaHref="/" />
+  <main style="padding-top:5rem;">
+
+    <!-- Hero -->
+    <section class="section audit-hero">
+      <div class="s-tag">// Sin costo · Sin compromiso</div>
+      <h1 class="s-headline">
+        Auditoría Gratuita<br>
+        <em>de 30 minutos.</em>
+      </h1>
+      <p class="audit-sub">
+        Una conversación directa donde identificamos cuánto tiempo y dinero está perdiendo tu operación — y qué se puede hacer al respecto.
+        Sin formularios infinitos. Sin ventas de alta presión.
+      </p>
+
+      <!-- Includes -->
+      <div class="audit-includes">
+        {[
+          { icon: '🔍', title: 'Análisis de procesos', desc: 'Mapeamos cómo opera tu equipo hoy e identificamos los cuellos de botella principales.' },
+          { icon: '💡', title: 'Oportunidades concretas', desc: 'Te decimos exactamente qué procesos tienen mayor potencial de automatización.' },
+          { icon: '📊', title: 'Estimación de ahorro', desc: 'Un número real: cuántas horas y cuánto dinero podrías recuperar al mes.' },
+          { icon: '🗺️', title: 'Propuesta sin compromiso', desc: 'Si tiene sentido trabajar juntos, te presentamos un roadmap claro y con precios.' },
+        ].map(item => (
+          <div class="audit-item">
+            <span class="audit-icon">{item.icon}</span>
+            <div>
+              <strong class="audit-item-title">{item.title}</strong>
+              <p class="audit-item-desc">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Form + sidebar -->
+    <section class="section" style="padding-top:0;">
+      <div class="audit-grid">
+
+        <!-- Sidebar -->
+        <div class="audit-sidebar">
+
+          <div class="sidebar-card">
+            <div class="sidebar-tag">Lo que pasa después</div>
+            <ol class="steps-list">
+              {[
+                'Recibes respuesta en menos de 24h',
+                'Agendamos la llamada de 30 min',
+                'Analizamos tu operación en vivo',
+                'Recibes el reporte con oportunidades',
+                'Tu decides si continuar — sin presión',
+              ].map((step, i) => (
+                <li class="step-item">
+                  <span class="step-num">{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div class="guarantee-pill">
+            <span class="gp-icon">🛡️</span>
+            <div>
+              <strong>Sin riesgo</strong>
+              <p>Si la auditoría no te aportó claridad, no te pedimos nada. Tu tiempo es nuestro compromiso.</p>
+            </div>
+          </div>
+
+          <div class="sidebar-card" style="background:rgba(0,168,143,.05);border-color:rgba(0,168,143,.2);">
+            <div class="sidebar-tag" style="color:var(--teal);">Contacto directo</div>
+            <a href={`mailto:${SITE.email}`} class="direct-link">
+              ✉️ {SITE.email}
+            </a>
+            {SITE.linkedin && (
+              <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" class="direct-link">
+                LinkedIn → MUZA GROW
+              </a>
+            )}
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div id="form">
+          <div class="form-label">Solicita tu auditoría</div>
+          <ContactForm client:load redirectTo="/gracias" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Mini FAQ -->
+    <section class="section" style="padding-top:0;padding-bottom:5rem;max-width:720px;">
+      <div class="s-tag">Preguntas frecuentes</div>
+      <h2 class="s-headline" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:2rem;">
+        Sobre la <em>auditoría.</em>
+      </h2>
+      <div class="mini-faq">
+        {[
+          {
+            q: 'Es realmente gratis?',
+            a: 'Sí. La auditoría de 30 minutos no tiene costo. Si después decides trabajar con nosotros, te presentamos una propuesta — pero la conversación inicial no compromete nada.',
+          },
+          {
+            q: 'Qué necesito preparar?',
+            a: 'Nada formal. Solo tener claridad de cuáles son los procesos que más tiempo consumen en tu equipo. Con eso es suficiente para una conversación productiva.',
+          },
+          {
+            q: 'Qué pasa si no somos fit?',
+            a: 'Lo decimos con honestidad. Si tu operación no está en el punto donde la automatización tiene sentido, te lo decimos y te orientamos sobre qué hacer primero.',
+          },
+          {
+            q: 'En cuánto tiempo recibo respuesta?',
+            a: 'En menos de 24 horas en días hábiles. Normalmente mucho menos.',
+          },
+          {
+            q: 'Trabajan solo con empresas de CDMX?',
+            a: 'No. Trabajamos con empresas de todo LATAM de forma remota. La mayoría de nuestros proyectos se ejecutan 100% en línea.',
+          },
+        ].map(item => (
+          <div class="mfaq-item">
+            <strong class="mfaq-q">{item.q}</strong>
+            <p class="mfaq-a">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+.audit-hero { padding-bottom: 2rem; }
+.audit-sub {
+  font-family: var(--body); font-size: clamp(.95rem,2vw,1.1rem);
+  color: var(--gr); line-height: 1.75; max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.audit-includes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  max-width: 900px;
+}
+.audit-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--s1); border: 1px solid var(--bdr);
+  border-radius: 1rem; padding: 1.4rem;
+  transition: border-color .2s;
+}
+.audit-item:hover { border-color: rgba(255,107,53,.25); }
+.audit-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; margin-top: .1rem; }
+.audit-item-title {
+  font-family: var(--body); font-size: .95rem;
+  font-weight: 700; color: var(--white); display: block; margin-bottom: .3rem;
+}
+.audit-item-desc { font-family: var(--body); font-size: .85rem; color: var(--gr); line-height: 1.6; }
+
+/* Grid */
+.audit-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .audit-grid { grid-template-columns: 1fr; }
+}
+
+/* Sidebar */
+.audit-sidebar { display: flex; flex-direction: column; gap: 1.2rem; }
+.sidebar-card {
+  background: var(--s1); border: 1px solid var(--bdr);
+  border-radius: 1.2rem; padding: 1.5rem;
+}
+.sidebar-tag {
+  font-family: var(--mono); font-size: .55rem;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gr); margin-bottom: 1rem;
+}
+.steps-list { list-style: none; display: flex; flex-direction: column; gap: .8rem; }
+.step-item {
+  display: flex; align-items: flex-start; gap: .75rem;
+  font-family: var(--body); font-size: .87rem; color: var(--gr); line-height: 1.5;
+}
+.step-num {
+  font-family: var(--mono); font-size: .6rem; color: var(--teal);
+  background: rgba(0,168,143,.1); border: 1px solid rgba(0,168,143,.2);
+  border-radius: 50%; width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.guarantee-pill {
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: rgba(255,107,53,.05); border: 1px solid rgba(255,107,53,.2);
+  border-radius: 1rem; padding: 1.2rem 1.4rem;
+}
+.gp-icon { font-size: 1.4rem; flex-shrink: 0; }
+.guarantee-pill strong { font-size: .9rem; color: var(--white); display: block; margin-bottom: .25rem; }
+.guarantee-pill p { font-size: .82rem; color: var(--gr); line-height: 1.55; }
+.direct-link {
+  display: block; font-family: var(--mono); font-size: .65rem;
+  color: var(--teal); letter-spacing: .08em; text-decoration: none;
+  margin-top: .6rem; transition: color .2s;
+}
+.direct-link:hover { color: var(--white); }
+.form-label {
+  font-family: var(--mono); font-size: .55rem;
+  color: var(--gr); letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+/* Mini FAQ */
+.mini-faq { display: flex; flex-direction: column; gap: 0; }
+.mfaq-item {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--bdr);
+}
+.mfaq-item:last-child { border-bottom: none; }
+.mfaq-q {
+  font-family: var(--body); font-size: .97rem;
+  font-weight: 700; color: var(--white);
+  display: block; margin-bottom: .5rem;
+}
+.mfaq-a { font-family: var(--body); font-size: .87rem; color: var(--gr); line-height: 1.7; }
+</style>

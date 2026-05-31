@@ -1,0 +1,98 @@
+---
+---
+
+<section class="garantia-section" aria-labelledby="gar-h">
+  <div class="section garantia-inner">
+    <div class="garantia-grid">
+
+      <div class="gar-left">
+        <div class="s-tag">// Sin riesgo</div>
+        <h2 class="s-headline" id="gar-h" style="margin-bottom:1rem;">
+          Si no ves valor,<br>
+          <em>no nos debes nada.</em>
+        </h2>
+        <p class="gar-desc">
+          La auditoría es gratis. Si después de la conversación sientes que no aportó claridad a tu operación, no hay ningún compromiso. Punto.
+        </p>
+        <p class="gar-desc" style="margin-top:.8rem;">
+          Y si decidimos trabajar juntos y en el proceso algo no funciona como acordamos, lo corregimos. Sin excusas, sin costo adicional.
+        </p>
+      </div>
+
+      <div class="gar-right">
+        {[
+          {
+            icon: '🎯',
+            title: 'Auditoría sin costo',
+            desc: '30 minutos de análisis real. Sin formularios de pre-calificación. Sin costo de entrada.',
+          },
+          {
+            icon: '📋',
+            title: 'Propuesta transparente',
+            desc: 'Scope claro, timeline definido, precio sin sorpresas — antes de que firmes cualquier cosa.',
+          },
+          {
+            icon: '🔧',
+            title: 'Soporte post-launch',
+            desc: 'No es entrega y desaparece. Todos los proyectos incluyen soporte técnico después del deploy.',
+          },
+          {
+            icon: '🛡️',
+            title: 'Garantía de ejecución',
+            desc: 'Lo que se acuerda se entrega. Si algo falla de nuestra parte, lo corregimos sin costo extra.',
+          },
+        ].map(item => (
+          <div class="gar-item">
+            <span class="gar-icon">{item.icon}</span>
+            <div>
+              <strong class="gar-title">{item.title}</strong>
+              <p class="gar-text">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.garantia-section {
+  border-top: 1px solid var(--bdr);
+  background: rgba(0,168,143,.02);
+  position: relative;
+  z-index: 2;
+}
+.garantia-inner { padding-top: clamp(3rem,8vw,7rem); padding-bottom: clamp(3rem,8vw,7rem); }
+
+.garantia-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .garantia-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.gar-desc {
+  font-family: var(--body); font-size: .95rem;
+  color: var(--gr); line-height: 1.75;
+}
+
+.gar-right { display: flex; flex-direction: column; gap: 1rem; }
+.gar-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--s1); border: 1px solid var(--bdr);
+  border-radius: 1rem; padding: 1.2rem 1.4rem;
+  transition: border-color .25s;
+}
+.gar-item:hover { border-color: rgba(0,168,143,.3); }
+.gar-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: .1rem; }
+.gar-title {
+  font-family: var(--body); font-size: .93rem;
+  font-weight: 700; color: var(--white);
+  display: block; margin-bottom: .3rem;
+}
+.gar-text { font-family: var(--body); font-size: .84rem; color: var(--gr); line-height: 1.6; }
+</style>
