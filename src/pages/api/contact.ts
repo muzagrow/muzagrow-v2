@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { z } from 'zod';
 import { createResendClient, buildEmailHtml } from '@/lib/resend';
+import { put } from '@vercel/blob';
 
 export const prerender = false;
 // Note: requires server adapter (e.g. @astrojs/vercel) for production
@@ -71,6 +72,14 @@ export const POST: APIRoute = async ({ request }) => {
       subject: `Nuevo lead — ${data.empresa}`,
       html: buildEmailHtml(data),
     });
+
+    // Save lead to Blob for dashboard
+    const leadId = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+    put(
+      `leads/${leadId}.json`,
+      JSON.stringify({ ...data, createdAt: new Date().toISOString(), source: 'contacto' }),
+      { access: 'public', addRandomSuffix: false }
+    ).catch(e => console.error('Blob lead save error:', e));
 
     return new Response(
       JSON.stringify({ success: true, message: 'Formulario enviado correctamente' }),
