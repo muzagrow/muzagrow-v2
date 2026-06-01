@@ -224,58 +224,7 @@ body::after {
 @media (max-width: 480px) { .card { padding: 1.8rem; } }
 
 /* ══════════════════════════════════════
-   BOTTOM DOCK
-══════════════════════════════════════ */
-#dock {
-  position: sticky; bottom: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: .75rem var(--px);
-  background: rgba(5,17,20,.98); border-top: 1px solid var(--bdr);
-  backdrop-filter: blur(20px); gap: .75rem;
-  max-width: 100%;
-}
-.dock-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .75rem;
-}
-.dock-term {
-  width: 34px; height: 34px; background: var(--s2);
-  border: 1px solid var(--bdr); border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: .65rem; color: var(--coral); flex-shrink: 0;
-}
-@media (max-width: 480px) { .dock-term { display: none; } }
-.dock-actions { display: flex; gap: .6rem; align-items: center; }
-.dock-outline {
-  font-family: var(--mono); font-size: .58rem; font-weight: 600;
-  letter-spacing: .16em; color: var(--white); text-decoration: none;
-  background: var(--s2); border: 1px solid var(--bdr);
-  border-radius: 20px; padding: .48rem 1rem;
-  display: inline-flex; align-items: center; gap: .3rem;
-  transition: color .2s, background .2s, border-color .2s;
-}
-@media (max-width: 480px) { .dock-outline { display: none; } }
-.dock-outline:hover { background: rgba(255,255,255,.08); border-color: var(--bdr-g); }
-.dock-outline .br { color: var(--gr-d); }
-.dock-cta {
-  font-family: var(--mono); font-size: .58rem; font-weight: 700;
-  letter-spacing: .14em; color: #051114; background: var(--white);
-  text-decoration: none; border-radius: 20px;
-  padding: .5rem 1.1rem; white-space: nowrap;
-  display: inline-flex; align-items: center; gap: .4rem;
-  transition: box-shadow .2s; border: 1px solid transparent;
-}
-.dock-cta:hover { box-shadow: 0 0 22px rgba(255,107,53,.4); }
-.dock-loc {
-  font-family: var(--mono); font-size: .49rem; color: var(--gr-d);
-  letter-spacing: .1em; text-align: right; line-height: 1.6; flex-shrink: 0;
-}
-@media (max-width: 640px) { .dock-loc { display: none; } }
+   FAQ
 
 /* ══════════════════════════════════════
    FAQ
