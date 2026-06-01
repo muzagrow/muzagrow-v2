@@ -19,6 +19,14 @@ const plausible = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/images/logo-icon.png" />
   <link rel="apple-touch-icon" href="/images/logo-icon.png" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJXZ7GZMQV"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EJXZ7GZMQV');
+  </script>
   <SEO title={title} description={description} image={image} />
   <meta name="google-site-verification" content="7WLmU3p1w0DQJevuJsJ7WeCbfFoMyMpjgw7nl65pM7Q" />
   <meta name="google-site-verification" content="vVyTA6TP0X_a0F3U8_5bs5NkI4ACkReEPGM37l6C0CQ" />
