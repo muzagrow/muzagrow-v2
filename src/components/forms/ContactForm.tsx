@@ -58,8 +58,8 @@ export default function ContactForm() {
           ¡Mensaje recibido!
         </h3>
         <p style={{ fontFamily: 'var(--body)', fontSize: '.95rem', color: 'var(--gr)', lineHeight: 1.7, maxWidth: 400, margin: '0 auto' }}>
-          Moises revisará tu desafío y te contactará en menos de 24 horas.
-          Si es urgente, escríbenos directo por WhatsApp.
+          Revisamos tu desafío y te contactamos en menos de 24 horas.
+          Si es urgente, escríbenos directo al correo.
         </p>
         <button
           onClick={() => setState('idle')}
@@ -201,7 +201,7 @@ export default function ContactForm() {
         textAlign: 'center',
         letterSpacing: '.08em',
       }}>
-        // Moises responde personalmente en menos de 24h. Sin spam.
+        // Respondemos en menos de 24h. Sin spam.
       </p>
     </form>
   );

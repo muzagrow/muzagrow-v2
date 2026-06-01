@@ -57,7 +57,7 @@ export const PROCESS_STEPS = [
     icon: '🔍',
     title: 'Descubrimiento',
     titleEm: 'del problema',
-    description: 'Conversación directa con Moises. Sin formularios infinitos. Entendemos tu operación real, identificamos cuellos de botella y oportunidades.',
+    description: 'Conversación directa con el equipo. Sin formularios infinitos. Entendemos tu operación real, identificamos cuellos de botella y oportunidades.',
     items: ['Auditoría de procesos', 'Identificación de oportunidades', 'Propuesta de solución'],
   },
   {
