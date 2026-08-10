@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://muzagrow.com/sitemap-index.xml
+Sitemap: https://www.muzagrow.com/sitemap-index.xml

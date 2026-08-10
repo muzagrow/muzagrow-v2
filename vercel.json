@@ -6,5 +6,13 @@
     "env": {
       "NODE_VERSION": "22"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "muzagrow.com" }],
+      "destination": "https://www.muzagrow.com/$1",
+      "permanent": true
+    }
+  ]
 }

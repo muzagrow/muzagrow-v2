@@ -17,8 +17,8 @@ import CTA from '@/components/sections/CTA.astro';
 ---
 
 <BaseLayout
-  title="MUZA GROW | Infraestructura de Crecimiento con IA — CDMX"
-  description="Diseñamos infraestructura de crecimiento para corporativos en LATAM. Service Design + Automatización IA para que tu equipo haga lo que importa."
+  title="Automatización Empresas LATAM - Reduce Costos 60% | MUZA GROW"
+  description="Automatización de procesos + Service Design para empresas LATAM. Reduce procesos manuales 40-60%. Auditoría gratis con estimado exacto. Casos: Digital Tracking + LSAR Inox."
 >
   <Header />
   <main>
@@ -68,11 +68,17 @@ import CTA from '@/components/sections/CTA.astro';
         <div>
           <div class="s-tag">Preguntas frecuentes</div>
           <h2 class="s-headline" id="faq-h" style="margin-bottom:1.5rem">
-            Todo lo que<br><em>necesitas saber.</em>
+            Automatización de procesos:<br><em>preguntas frecuentes.</em>
           </h2>
-          <p style="font-family:var(--body);font-size:.93rem;color:var(--gr);line-height:1.75;margin-top:.5rem;margin-bottom:1.6rem;">
+          <p style="font-family:var(--body);font-size:.93rem;color:var(--gr);line-height:1.75;margin-top:.5rem;margin-bottom:1rem;">
             Si tienes una duda que no está aquí, escríbenos directamente. Respondemos en menos de 24h.
           </p>
+          <a
+            href="/servicios"
+            style="font-family:var(--mono);font-size:.58rem;color:var(--teal);letter-spacing:.12em;text-decoration:none;text-transform:uppercase;display:block;margin-bottom:1.2rem;transition:letter-spacing .2s;"
+          >
+            Ver soluciones de automatización →
+          </a>
           <a
             href="mailto:hola@muzagrow.com"
             style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;color:#000;background:var(--white);text-decoration:none;padding:.55rem 1.4rem;border-radius:20px;display:inline-block;transition:box-shadow .2s;"
@@ -83,6 +89,22 @@ import CTA from '@/components/sections/CTA.astro';
 
         <div class="faq-list">
           {[
+            {
+              q: '¿Cuánto ahorro al reducir costos con automatización de procesos?',
+              a: 'Nuestros clientes reportan reducciones de 40-60% en procesos manuales. El ahorro exacto se calcula durante la auditoría gratuita. Casos verificados: Digital Tracking (crecimiento con presencia digital) y LSAR Inox (automatización de procesos operacionales).',
+            },
+            {
+              q: '¿Qué diferencia hay entre Service Design y solo automatizar?',
+              a: 'Automatizar sin diseñar es acelerar procesos rotos — el caos llega más rápido. Service Design primero significa mapear, rediseñar y luego automatizar. El resultado: infraestructura escalable que no colapsa cuando creces 3x.',
+            },
+            {
+              q: '¿Cuál es mejor para empresas LATAM: Zapier, Make o n8n?',
+              a: 'Depende de tu caso. Zapier: fácil de usar pero caro a escala. Make: buen balance entre poder y usabilidad. n8n: máximo control, código abierto y sin costos por ejecución — ideal para empresas LATAM que necesitan escalar sin disparar el presupuesto.',
+            },
+            {
+              q: '¿Cuánto tiempo toma automatizar procesos manuales?',
+              a: 'Diagnóstico: 3–5 días. Diseño de flujos: 1–2 semanas. Build e implementación: 2–8 semanas según complejidad. La mayoría de nuestros clientes tiene su primer sistema activo y generando ROI en menos de 30 días.',
+            },
             {
               q: '¿Qué diferencia a MUZA de otras agencias de automatización?',
               a: 'Otros hacen "automatización" (conectan herramientas). Nosotros diseñamos infraestructura completa. Antes de escribir código, mapeamos tu proceso entero. Por eso las soluciones escalan cuando creces 3x. El diferenciador no son las herramientas — es el proceso.',
@@ -132,6 +154,87 @@ import CTA from '@/components/sections/CTA.astro';
   </main>
   <Footer />
 </BaseLayout>
+
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Auditoría de Procesos para Automatización — Growth Architecture Discovery",
+    "description": "Mapeamos tu operación completa e identificamos dónde se pierden horas y costos. Resultado: strategy document con roadmap de automatización ejecutable.",
+    "provider": { "@type": "LocalBusiness", "name": "MUZA GROW", "url": "https://www.muzagrow.com" },
+    "areaServed": ["MX","CO","AR","CL","PE"],
+    "serviceType": "Consultoría de Automatización de Procesos"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Automatización con n8n — Automation Design & Build",
+    "description": "Diseñamos y construimos flujos de automatización con n8n, agentes IA e integraciones. Sistemas que operan 24/7 y reducen costos operacionales 60-70%.",
+    "provider": { "@type": "LocalBusiness", "name": "MUZA GROW", "url": "https://www.muzagrow.com" },
+    "areaServed": ["MX","CO","AR","CL","PE"],
+    "serviceType": "Automatización de Procesos con n8n e IA"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Optimización Continua de Procesos — Ongoing Optimization & ROI",
+    "description": "Monitoreamos, iteramos y mejoramos sistemas automatizados basado en métricas reales. ROI medible y reducción de costos operacionales comprobada.",
+    "provider": { "@type": "LocalBusiness", "name": "MUZA GROW", "url": "https://www.muzagrow.com" },
+    "areaServed": ["MX","CO","AR","CL","PE"],
+    "serviceType": "Optimización de Procesos Empresariales"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Moises",
+    "jobTitle": "Founder & Service Designer",
+    "description": "Especialista en Service Design y automatización de procesos para empresas LATAM.",
+    "worksFor": { "@type": "Organization", "name": "MUZA GROW", "url": "https://www.muzagrow.com" },
+    "url": "https://www.muzagrow.com/nosotros"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto ahorro al reducir costos con automatización de procesos?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nuestros clientes reportan reducciones de 40-60% en procesos manuales. El ahorro exacto se calcula en la auditoría gratuita. Casos: Digital Tracking y LSAR Inox." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué diferencia hay entre Service Design y solo automatizar?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Automatizar sin diseñar es acelerar procesos rotos. Service Design primero significa mapear, rediseñar y luego automatizar. El resultado es infraestructura escalable que no colapsa cuando creces 3x." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es mejor para empresas LATAM: Zapier, Make o n8n?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zapier es fácil pero caro a escala. Make ofrece buen balance. n8n es ideal para empresas LATAM: código abierto, sin costos por ejecución y máximo control." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo toma automatizar procesos manuales?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Diagnóstico: 3–5 días. Diseño de flujos: 1–2 semanas. Build e implementación: 2–8 semanas según complejidad. La mayoría de clientes tiene su primer sistema activo en menos de 30 días." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito un equipo técnico propio para implementar automatización?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Diseñamos, construimos y mantenemos toda la infraestructura de automatización. Solo necesitas saber qué resultados quieres — nosotros construimos el camino." }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.muzagrow.com" },
+      { "@type": "ListItem", "position": 2, "name": "Automatización de Procesos", "item": "https://www.muzagrow.com/servicios" },
+      { "@type": "ListItem", "position": 3, "name": "Blog", "item": "https://www.muzagrow.com/blog" }
+    ]
+  }
+]
+</script>
 
 <script>
   document.querySelectorAll('.faq-btn').forEach(btn => {

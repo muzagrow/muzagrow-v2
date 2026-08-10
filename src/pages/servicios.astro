@@ -7,8 +7,8 @@ import Button from '@/components/ui/Button.astro';
 ---
 
 <BaseLayout
-  title="Servicios | MUZA GROW"
-  description="Growth Architecture Discovery, Automation Design & Build, y Ongoing Optimization. Service Design para corporativos en LATAM."
+  title="Automatización de Procesos & Service Design | Servicios LATAM | MUZA GROW"
+  description="3 servicios de automatización de procesos: Auditoría + Build con n8n + Optimización continua. Reduce costos operacionales 40-60%. Auditoría gratis 30 min."
 >
   <Header />
   <main style="padding-top:5rem;">
@@ -17,11 +17,11 @@ import Button from '@/components/ui/Button.astro';
     <section class="section" style="padding-top:4rem;padding-bottom:2rem;">
       <div class="s-tag">Protocolos</div>
       <h1 class="s-headline">
-        Servicios diseñados<br><em>para tu problema exacto.</em>
+        Servicios de automatización<br><em>y Service Design para LATAM.</em>
       </h1>
       <p style="font-family:var(--body);font-size:1.05rem;color:var(--gr);line-height:1.75;max-width:600px;">
-        No vendemos paquetes genéricos. Cada cliente pasa por Discovery primero.
-        Porque cada problema operacional es único y merece una solución diseñada específicamente para él.
+        No vendemos paquetes genéricos de automatización de procesos. Cada cliente pasa por Discovery primero.
+        Porque cada problema operacional es único y merece una solución de automatización diseñada específicamente para su empresa.
       </p>
     </section>
 
@@ -32,24 +32,24 @@ import Button from '@/components/ui/Button.astro';
           <div>
             <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.15em;margin-bottom:1rem;">/ 01 — FUNDACIÓN</div>
             <h2 style="font-family:var(--body);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:1.5rem;">
-              Growth Architecture<br>
-              <em style="font-family:var(--ser);color:var(--teal);font-style:italic;font-weight:400;">Discovery</em>
+              Auditoría de Procesos<br>
+              <em style="font-family:var(--ser);color:var(--teal);font-style:italic;font-weight:400;">Growth Architecture Discovery</em>
             </h2>
             <p style="font-family:var(--body);font-size:.95rem;color:var(--gr);line-height:1.75;margin-bottom:1.5rem;">
-              Antes de construir cualquier cosa, necesitamos entender tu operación real.
-              En sesiones directas, mapeamos procesos, identificamos cuellos de botella
-              y diseñamos la arquitectura de la solución ideal.
+              Antes de automatizar cualquier proceso, necesitamos entender tu operación real.
+              En sesiones directas, mapeamos procesos manuales, identificamos cuellos de botella
+              y diseñamos la arquitectura de automatización ideal para tu empresa.
             </p>
             <p style="font-family:var(--body);font-size:.95rem;color:var(--white);line-height:1.75;">
-              El resultado es un <strong>strategy document + execution roadmap</strong> que sirve
-              como guía para la fase de construcción. Sin ambigüedad. Sin suposiciones.
+              El resultado es un <strong>strategy document + roadmap de automatización</strong> que sirve
+              como guía para eliminar procesos manuales. Sin ambigüedad. Sin suposiciones.
             </p>
           </div>
           <div style="display:flex;flex-direction:column;gap:1.2rem;">
             <div style="background:var(--s2);border:1px solid var(--bdr);border-radius:1rem;padding:1.5rem;">
               <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.85rem;">Incluye</div>
               <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
-                {['Sesiones de discovery personalizadas', 'Mapeo de procesos actuales', 'Identificación de oportunidades de automatización', 'Architecture design document', 'Execution roadmap con timelines', 'Estimado de ROI'].map(item => (
+                {['Sesiones de discovery personalizadas', 'Mapeo de procesos manuales y cuellos de botella', 'Identificación de oportunidades de automatización y reducción de costos', 'Strategy document + architecture design', 'Roadmap de automatización con timelines', 'Estimado de ROI y ahorro operacional'].map(item => (
                   <li style="font-family:var(--body);font-size:.88rem;color:var(--gr);display:flex;align-items:center;gap:.65rem;">
                     <span style="width:5px;height:5px;background:var(--teal);border-radius:50%;flex-shrink:0;"></span>
                     {item}
@@ -64,9 +64,10 @@ import Button from '@/components/ui/Button.astro';
             </div>
           </div>
         </div>
-        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--bdr);display:flex;gap:1rem;">
-          <Button href="/contacto">Contáctanos</Button>
+        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--bdr);display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+          <Button href="/contacto">Agendar auditoría gratis</Button>
           <Button href="/contacto" variant="outline">Hacer preguntas primero</Button>
+          <a href="/blog/como-identificar-procesos-para-automatizar" style="font-family:var(--mono);font-size:.55rem;color:var(--gr);letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--gr)'">Cómo identificar procesos a automatizar →</a>
         </div>
       </article>
     </section>
@@ -78,24 +79,24 @@ import Button from '@/components/ui/Button.astro';
           <div>
             <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.15em;margin-bottom:1rem;">/ 02 — CONSTRUCCIÓN</div>
             <h2 style="font-family:var(--body);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:1.5rem;">
-              Automation Design<br>
-              <em style="font-family:var(--ser);color:var(--orange);font-style:italic;font-weight:400;">& Build</em>
+              Automatización con n8n<br>
+              <em style="font-family:var(--ser);color:var(--orange);font-style:italic;font-weight:400;">Automation Design & Build</em>
             </h2>
             <p style="font-family:var(--body);font-size:.95rem;color:var(--gr);line-height:1.75;margin-bottom:1.5rem;">
-              Con el roadmap en mano, construimos. Diseñamos los workflows, seleccionamos
-              las herramientas correctas y construimos el sistema completo: n8n flows,
-              AI agents, integraciones y dashboards.
+              Con el roadmap en mano, construimos la automatización de procesos. Diseñamos los workflows,
+              seleccionamos las herramientas correctas y construimos el sistema completo: n8n flows,
+              agentes IA, integraciones y dashboards que operan 24/7.
             </p>
             <p style="font-family:var(--body);font-size:.95rem;color:var(--white);line-height:1.75;">
               Desplegamos, testeamos y entregamos con <strong>documentación completa</strong>.
-              Tu equipo puede operarlo desde el día 1.
+              Tu equipo puede operar el sistema de automatización desde el día 1.
             </p>
           </div>
           <div style="display:flex;flex-direction:column;gap:1.2rem;">
             <div style="background:var(--s2);border:1px solid var(--bdr);border-radius:1rem;padding:1.5rem;">
               <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.85rem;">Incluye</div>
               <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
-                {['Diseño de workflows y arquitectura', 'Build con n8n + AI agents', 'Integraciones con tus herramientas', 'Testing & QA riguroso', 'Deployment en producción', 'Documentación técnica', 'Training de tu equipo'].map(item => (
+                {['Diseño de workflows y arquitectura de automatización', 'Build con n8n + agentes IA', 'Integraciones con tus herramientas (CRM, ERP, WhatsApp)', 'Testing & QA riguroso', 'Deployment en producción', 'Documentación técnica completa', 'Training de tu equipo para operar el sistema'].map(item => (
                   <li style="font-family:var(--body);font-size:.88rem;color:var(--gr);display:flex;align-items:center;gap:.65rem;">
                     <span style="width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0;"></span>
                     {item}
@@ -110,9 +111,10 @@ import Button from '@/components/ui/Button.astro';
             </div>
           </div>
         </div>
-        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--bdr);display:flex;gap:1rem;">
-          <Button href="/contacto">Iniciar proyecto</Button>
+        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--bdr);display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+          <Button href="/contacto">Iniciar automatización</Button>
           <Button href="/proceso" variant="outline">Ver nuestro proceso</Button>
+          <a href="/blog/que-es-n8n-automatizacion-empresas" style="font-family:var(--mono);font-size:.55rem;color:var(--gr);letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--gr)'">Qué es n8n y por qué lo usamos →</a>
         </div>
       </article>
     </section>
@@ -124,23 +126,23 @@ import Button from '@/components/ui/Button.astro';
           <div>
             <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.15em;margin-bottom:1rem;">/ 03 — CRECIMIENTO</div>
             <h2 style="font-family:var(--body);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:1.5rem;">
-              Ongoing<br>
-              <em style="font-family:var(--ser);color:var(--coral);font-style:italic;font-weight:400;">Optimization</em>
+              Optimización Continua de Procesos<br>
+              <em style="font-family:var(--ser);color:var(--coral);font-style:italic;font-weight:400;">Ongoing Optimization & ROI</em>
             </h2>
             <p style="font-family:var(--body);font-size:.95rem;color:var(--gr);line-height:1.75;margin-bottom:1.5rem;">
-              Lanzar es el inicio, no el fin. Monitoreamos performance, identificamos
-              oportunidades de mejora y escalamos el sistema conforme tu negocio crece.
+              Lanzar la automatización es el inicio, no el fin. Monitoreamos performance de procesos,
+              identificamos oportunidades de reducción de costos y escalamos el sistema conforme tu negocio crece en LATAM.
             </p>
             <p style="font-family:var(--body);font-size:.95rem;color:var(--white);line-height:1.75;">
-              Cada iteración se basa en <strong>métricas reales</strong>, no en suposiciones.
-              ROI medible, comprobable, documentado.
+              Cada iteración se basa en <strong>métricas reales de ROI</strong>, no en suposiciones.
+              Reducción de costos operacionales medible, comprobable, documentada.
             </p>
           </div>
           <div style="display:flex;flex-direction:column;gap:1.2rem;">
             <div style="background:var(--s2);border:1px solid var(--bdr);border-radius:1rem;padding:1.5rem;">
               <div style="font-family:var(--mono);font-size:.55rem;color:var(--gr-d);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.85rem;">Incluye</div>
               <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem;">
-                {['Monitoring de performance mensual', 'Análisis de métricas y KPIs', 'Iteraciones basadas en datos', 'Nuevas automatizaciones según necesidad', 'Escalabilidad del sistema', 'Reportes de ROI'].map(item => (
+                {['Monitoring de performance de automatizaciones mensual', 'Análisis de métricas, KPIs y reducción de costos', 'Iteraciones de procesos basadas en datos reales', 'Nuevas automatizaciones según crecimiento del negocio', 'Escalabilidad del sistema sin límite lineal', 'Reportes de ROI y ahorro operacional documentado'].map(item => (
                   <li style="font-family:var(--body);font-size:.88rem;color:var(--gr);display:flex;align-items:center;gap:.65rem;">
                     <span style="width:5px;height:5px;background:var(--coral);border-radius:50%;flex-shrink:0;"></span>
                     {item}
@@ -155,8 +157,9 @@ import Button from '@/components/ui/Button.astro';
             </div>
           </div>
         </div>
-        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--bdr);display:flex;gap:1rem;">
+        <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--bdr);display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
           <Button href="/contacto">Activar optimización</Button>
+          <a href="/blog/reducir-costos-operacionales-sin-despedir" style="font-family:var(--mono);font-size:.55rem;color:var(--gr);letter-spacing:.1em;text-decoration:none;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--gr)'">Cómo reducir costos sin despedir →</a>
         </div>
       </article>
     </section>
@@ -164,12 +167,12 @@ import Button from '@/components/ui/Button.astro';
     <!-- CTA -->
     <section class="section" style="text-align:center;padding-bottom:6rem;">
       <h2 style="font-family:var(--body);font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:1.5rem;">
-        ¿No sabes cuál servicio necesitas?
+        ¿No sabes qué proceso automatizar primero?
       </h2>
       <p style="font-family:var(--body);font-size:1rem;color:var(--gr);max-width:500px;margin:0 auto 2rem;line-height:1.7;">
-        Empieza con Discovery. Te ayudamos a entender qué construir antes de invertir en construirlo.
+        Empieza con la Auditoría de Procesos gratuita. Identificamos dónde se pierde más tiempo y dinero antes de construir cualquier automatización.
       </p>
-      <Button href="/contacto" size="lg">Empezar con diagnóstico gratuito →</Button>
+      <Button href="/contacto" size="lg">Agendar auditoría de procesos gratis →</Button>
     </section>
 
   </main>
@@ -184,3 +187,44 @@ import Button from '@/components/ui/Button.astro';
   }
 }
 </style>
+
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.muzagrow.com" },
+      { "@type": "ListItem", "position": 2, "name": "Servicios de Automatización", "item": "https://www.muzagrow.com/servicios" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Auditoría de Procesos — Growth Architecture Discovery",
+    "description": "Mapeamos procesos manuales e identificamos oportunidades de automatización y reducción de costos. Resultado: strategy document + roadmap de automatización ejecutable.",
+    "provider": { "@type": "LocalBusiness", "name": "MUZA GROW", "url": "https://www.muzagrow.com" },
+    "areaServed": ["MX","CO","AR","CL","PE"],
+    "serviceType": "Auditoría y Consultoría de Automatización de Procesos",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN", "description": "Diagnóstico inicial gratuito de 30 minutos" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Automatización con n8n — Automation Design & Build",
+    "description": "Diseño y construcción de sistemas de automatización de procesos con n8n, agentes IA e integraciones. Sistemas que operan 24/7 reduciendo costos operacionales 40-60%.",
+    "provider": { "@type": "LocalBusiness", "name": "MUZA GROW", "url": "https://www.muzagrow.com" },
+    "areaServed": ["MX","CO","AR","CL","PE"],
+    "serviceType": "Automatización de Procesos con n8n e Inteligencia Artificial"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Optimización Continua de Procesos — Ongoing Optimization & ROI",
+    "description": "Monitoring, iteración y mejora continua de sistemas de automatización. Reducción de costos operacionales documentada con métricas reales de ROI.",
+    "provider": { "@type": "LocalBusiness", "name": "MUZA GROW", "url": "https://www.muzagrow.com" },
+    "areaServed": ["MX","CO","AR","CL","PE"],
+    "serviceType": "Optimización de Procesos Empresariales y ROI"
+  }
+]
+</script>

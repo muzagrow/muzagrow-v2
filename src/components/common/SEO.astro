@@ -7,12 +7,12 @@ interface Props {
   type?: 'website' | 'article';
 }
 
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://muzagrow.com';
-const DEFAULT_DESC = 'Diseñamos infraestructura de crecimiento para corporativos en LATAM. Service Design + Automatización IA para que tu equipo haga lo que importa.';
+const SITE_URL = (Astro.site?.href ?? 'https://www.muzagrow.com').replace(/\/$/, '');
+const DEFAULT_DESC = 'Automatización de procesos + Service Design para empresas LATAM. Reduce procesos manuales 40-60%. Auditoría gratis con estimado exacto. Casos: Digital Tracking + LSAR Inox.';
 const DEFAULT_IMG = `${SITE_URL}/og-image.png`;
 
 const {
-  title = 'MUZA GROW | Infraestructura de Crecimiento con IA',
+  title = 'Automatización Empresas LATAM - Reduce Costos 60% | MUZA GROW',
   description = DEFAULT_DESC,
   image = DEFAULT_IMG,
   canonical = SITE_URL + Astro.url.pathname,
@@ -44,14 +44,18 @@ const fullTitle = title.includes('MUZA GROW') ? title : `${title} | MUZA GROW`;
 <!-- JSON-LD Organization -->
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LocalBusiness",
   "name": "MUZA GROW",
   "url": SITE_URL,
   "description": DEFAULT_DESC,
   "email": "hola@muzagrow.com",
+  "image": DEFAULT_IMG,
+  "priceRange": "$$$",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Ciudad de México",
     "addressCountry": "MX"
-  }
+  },
+  "areaServed": ["MX", "CO", "AR", "CL", "PE"],
+  "sameAs": ["https://linkedin.com/company/muza-grow"]
 })} />
